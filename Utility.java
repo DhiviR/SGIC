@@ -1,16 +1,17 @@
+package Utility;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Utility {
 
-    static void StringToDate(String strDate) throws ParseException {
+    public Date stringToDate(String strDate) throws ParseException {
         Date date = new SimpleDateFormat("dd/MM/yyyy").parse(strDate);
-
-        System.out.println(date);
+        return date;
     }
 
-    public static boolean isNullOrEmpty(String str) {
+    public boolean isNullOrEmpty(String str) {
         if (str == null || str.length() == 0) {
             return true;
         } else {
@@ -18,7 +19,7 @@ public class Utility {
         }
     }
 
-    static String removeLeadingZeros(String num) {
+    public String removeLeadingZeros(String num) {
         for (int i = 0; i < num.length(); i++) {
             if (num.charAt(i) != '0') {
                 String res = num.substring(i);
@@ -29,11 +30,11 @@ public class Utility {
         return "0";
     }
 
-    static String removeLeadingZerosRegex(String num) {
+    public String removeLeadingZerosRegex(String num) {
         return num.replaceAll("^0+(?!$)", "");
     }
 
-    static boolean isAlphaNumeric(String str) {
+    public boolean isAlphaNumeric(String str) {
         return str.matches("^[a-zA-Z0-9]*$");
     }
 }
