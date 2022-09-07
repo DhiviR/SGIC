@@ -1,3 +1,9 @@
+package app;
+
+import interfaces.Shape;
+import shapes.Circle;
+import shapes.Rectangle;
+
 import java.util.ArrayList;
 import java.util.List;
 

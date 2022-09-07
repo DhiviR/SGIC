@@ -1,3 +1,7 @@
+package shapes;
+
+import interfaces.Shape;
+
 import java.util.Objects;
 
 public class Rectangle extends Shape {

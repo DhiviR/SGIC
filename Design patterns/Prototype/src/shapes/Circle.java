@@ -1,3 +1,7 @@
+package shapes;
+
+import interfaces.Shape;
+
 public class Circle  extends Shape {
     public int radius;
 

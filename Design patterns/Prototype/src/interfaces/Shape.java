@@ -1,3 +1,5 @@
+package interfaces;
+
 import java.util.Objects;
 
 public abstract class Shape {
