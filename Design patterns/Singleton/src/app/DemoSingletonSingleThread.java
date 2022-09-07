@@ -1,3 +1,7 @@
+package app;
+
+import classes.Singleton;
+
 public class DemoSingletonSingleThread {
     public static void main(String[] args) {
         System.out.println("If you see the same value, then singleton was reused (yay!)" + "\n" +

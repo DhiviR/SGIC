@@ -1,3 +1,5 @@
+package classes;
+
 public interface InterfaceDemo {
     static void sayHello() {
         System.out.println("Hello!");

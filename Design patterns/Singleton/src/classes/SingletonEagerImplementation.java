@@ -1,3 +1,5 @@
+package classes;
+
 public class SingletonEagerImplementation {
     private static final SingletonEagerImplementation instance = new SingletonEagerImplementation();
 

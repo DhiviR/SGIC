@@ -1,3 +1,5 @@
+package classes;
+
 public final class Singleton {
     private static Singleton instance;
     public String value;
