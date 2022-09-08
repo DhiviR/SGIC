@@ -4,12 +4,11 @@
     <list default="true" id="2dd06dec-031c-4bbf-b094-27d4ba468303" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Circle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Demo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Rectangle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shape.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Prototype/app/Demo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Prototype/app/Demo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Prototype/shapes/Circle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Prototype/shapes/Circle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Prototype/shapes/Rectangle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Prototype/shapes/Rectangle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Demo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Demo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
