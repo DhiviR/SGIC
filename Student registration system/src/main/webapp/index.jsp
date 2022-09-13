@@ -40,10 +40,10 @@
                 <div class="sex">
                     <label for="sex">Sex</label>
 
-                    <input type="radio" name="sex" id="male">
+                    <input type="radio" name="sex" id="male" value="male">
                     <label for="Male">Male</label>
 
-                    <input type="radio" name="sex" id="female">
+                    <input type="radio" name="sex" id="female" value="female">
                     <label for="female">Female</label>
                 </div>
 
