@@ -40,6 +40,16 @@
 					"ownedViews": [
 						{
 							"_type": "FreelineEdgeView",
+							"_id": "AAAAAAGDNVa2zpvYNMw=",
+							"_parent": {
+								"$ref": "AAAAAAGDMsLDgn8sheE="
+							},
+							"font": "Arial;13;0",
+							"lineStyle": 1,
+							"points": "256:224;329:157"
+						},
+						{
+							"_type": "FreelineEdgeView",
 							"_id": "AAAAAAGDMuCDS4D034E=",
 							"_parent": {
 								"$ref": "AAAAAAGDMsLDgn8sheE="
@@ -899,6 +909,31 @@
 							"headNameLabel": {
 								"$ref": "AAAAAAGDMuGfCIEPmG0="
 							}
+						},
+						{
+							"_type": "EllipseView",
+							"_id": "AAAAAAGDNVX68JvGgVk=",
+							"_parent": {
+								"$ref": "AAAAAAGDMsLDgn8sheE="
+							},
+							"font": "Arial;13;0",
+							"left": 312,
+							"top": 144,
+							"width": 49,
+							"height": 25
+						},
+						{
+							"_type": "UMLTextView",
+							"_id": "AAAAAAGDNVYCcpvJCSs=",
+							"_parent": {
+								"$ref": "AAAAAAGDMsLDgn8sheE="
+							},
+							"font": "Arial;13;0",
+							"left": 320,
+							"top": 144,
+							"width": 60,
+							"height": 25,
+							"text": "Sex"
 						}
 					]
 				},
