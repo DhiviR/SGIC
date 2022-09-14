@@ -68,9 +68,9 @@ public class Registration extends HttpServlet {
 			int rowCount = preparedStatement.executeUpdate();
 			dispatcher = request.getRequestDispatcher("index.jsp");
 			if (rowCount > 0) {
-				request.setAttribute("Status", "Success");
+				request.setAttribute("status", "success");
 			} else {
-				request.setAttribute("Status", "Failed");
+				request.setAttribute("status", "failed");
 			}
 			
 			dispatcher.forward(request, response);

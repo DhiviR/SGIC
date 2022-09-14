@@ -10,6 +10,10 @@
     <link rel="stylesheet" href="css/registration.css">
 
     <body>
+    	<div>
+    		<input type="hidden" id="status" value="<%=request.getAttribute("status")%>">
+    	</div>
+    
         <div class="container">
             <form action="register" method="post">
                 <h1>Registration form</h1>
@@ -66,5 +70,18 @@
             </form>
         </div>
     </body>
+    
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<link rel="stylesheet" href="alert/dist/sweetalert.css">
+	
+	<script type="text/javascript">
+		var status = document.getElementById("status").value;
+		
+		if (status == "success") {
+			swal("Ok","Registration successful","success");
+		} else {
+			swal("Failed", "Registration failed", "failed");
+		}
+	</script>
 
     </html>
