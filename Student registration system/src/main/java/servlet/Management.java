@@ -98,7 +98,7 @@ public class Management extends HttpServlet {
     private void register(HttpServletRequest request, HttpServletResponse response)
 	    throws ServletException, IOException {
 
-	RequestDispatcher dispatcher = request.getRequestDispatcher("registration.jsp");
+	RequestDispatcher dispatcher = request.getRequestDispatcher("new-form.jsp");
 	dispatcher.forward(request, response);
     }
 
@@ -119,7 +119,7 @@ public class Management extends HttpServlet {
 	int id = Integer.parseInt(request.getParameter("id"));
 
 	User existingUser = userDAO.selectUser(id);
-	RequestDispatcher dispatcher = request.getRequestDispatcher("registraion.jsp");
+	RequestDispatcher dispatcher = request.getRequestDispatcher("new-form.jsp");
 	request.setAttribute("user", existingUser);
 	dispatcher.forward(request, response);
     }

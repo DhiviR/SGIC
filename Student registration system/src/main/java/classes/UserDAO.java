@@ -22,7 +22,7 @@ public class UserDAO {
 
     private String jdbcDriver = "com.mysql.jdbc.Driver";
     private String jdbcPassword = "root";
-    private String jdbcURL = "jdbc:mysql://localhost:3306/Student_registration_system?userSSL=false";
+    private String jdbcURL = "jdbc:mysql://localhost:3306/student_registration_system?userSSL=false";
 
     private String jdbcUsername = "root";
 
