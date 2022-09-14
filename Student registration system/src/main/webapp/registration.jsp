@@ -4,7 +4,7 @@
 
     <head>
         <meta charset="ISO-8859-1">
-        <title>Insert title here</title>
+        <title>Students Registration System</title>
     </head>
 
     <link rel="stylesheet" href="css/registration.css">
