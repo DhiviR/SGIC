@@ -20,22 +20,13 @@ import classes.UserDAO;
 @WebServlet("/")
 public class Management extends HttpServlet {
     private static final long serialVersionUID = 1L;
-//    private UserDAO userDAO;
 
-    private static UserDAO userDAO = null;
+    private UserDAO userDAO;
 
-    public static UserDAO getInstance() {
-	if (userDAO == null) {
-	    userDAO = new UserDAO();
-	}
-	return userDAO;
-
+    @Override
+    public void init() {
+	userDAO = new UserDAO();
     }
-
-//    @Override
-//    public void init() {
-//	userDAO = new UserDAO();
-//    }
 
     /**
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
@@ -59,14 +50,14 @@ public class Management extends HttpServlet {
 	    case "/edit":
 		showEditForm(request, response);
 		break;
-
-	    case "/delete":
-		deleteUser(request, response);
-		break;
-
-	    case "/update":
-		updateUser(request, response);
-		break;
+//
+//	    case "/delete":
+//		deleteUser(request, response);
+//		break;
+//
+//	    case "/update":
+//		updateUser(request, response);
+//		break;
 
 	    default:
 		listUser(request, response);
@@ -89,21 +80,6 @@ public class Management extends HttpServlet {
 	doGet(request, response);
     }
 
-    private void insert(HttpServletRequest request, HttpServletResponse response)
-	    throws ServletException, IOException, SQLException {
-	String name = request.getParameter("name");
-	int grade = Integer.parseInt(request.getParameter("grade"));
-	String gender = request.getParameter("gender");
-	int age = Integer.parseInt(request.getParameter("age"));
-	String address = request.getParameter("address");
-	String telephone = request.getParameter("telephone");
-
-	User user = new User(address, grade, age, name, gender, telephone);
-	userDAO.insertUser(user);
-
-	response.sendRedirect("list");
-    }
-
     private void register(HttpServletRequest request, HttpServletResponse response)
 	    throws ServletException, IOException {
 
@@ -111,14 +87,17 @@ public class Management extends HttpServlet {
 	dispatcher.forward(request, response);
     }
 
-    private void deleteUser(HttpServletRequest request, HttpServletResponse response)
+    private void insert(HttpServletRequest request, HttpServletResponse response)
 	    throws ServletException, IOException, SQLException {
-	int id = Integer.parseInt(request.getParameter("id"));
-	try {
-	    userDAO.deleteUser(id);
-	} catch (Exception e) {
-	    e.printStackTrace();
-	}
+	String name = request.getParameter("name");
+	int grade = Integer.parseInt(request.getParameter("grade"));
+	int age = Integer.parseInt(request.getParameter("age"));
+	String gender = request.getParameter("gender");
+	String address = request.getParameter("address");
+	String telephone = request.getParameter("telephone");
+
+	User user = new User(name, grade, age, gender, address, telephone);
+	userDAO.insertUser(user);
 
 	response.sendRedirect("list");
     }
@@ -133,20 +112,33 @@ public class Management extends HttpServlet {
 	dispatcher.forward(request, response);
     }
 
-    private void updateUser(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
-	int id = Integer.parseInt(request.getParameter("id"));
-	String name = request.getParameter("name");
-	int grade = Integer.parseInt(request.getParameter("grade"));
-	String gender = request.getParameter("gender");
-	int age = Integer.parseInt(request.getParameter("age"));
-	String address = request.getParameter("address");
-	String telephone = request.getParameter("telephone");
+//    private void deleteUser(HttpServletRequest request, HttpServletResponse response)
+//	    throws ServletException, IOException, SQLException {
+//	int id = Integer.parseInt(request.getParameter("id"));
+//	try {
+//	    userDAO.deleteUser(id);
+//	} catch (Exception e) {
+//	    e.printStackTrace();
+//	}
+//
+//	response.sendRedirect("list");
+//    }
 
-	User user = new User(address, grade, age, id, name, gender, telephone);
-
-	userDAO.updateUser(user);
-	response.sendRedirect("list");
-    }
+//
+//    private void updateUser(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+//	int id = Integer.parseInt(request.getParameter("id"));
+//	String name = request.getParameter("name");
+//	int grade = Integer.parseInt(request.getParameter("grade"));
+//	String gender = request.getParameter("gender");
+//	int age = Integer.parseInt(request.getParameter("age"));
+//	String address = request.getParameter("address");
+//	String telephone = request.getParameter("telephone");
+//
+//	User user = new User(address, grade, age, id, name, gender, telephone);
+//
+//	userDAO.updateUser(user);
+//	response.sendRedirect("list");
+//    }
 
     private void listUser(HttpServletRequest request, HttpServletResponse response)
 	    throws SQLException, IOException, ServletException {

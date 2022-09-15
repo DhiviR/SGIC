@@ -80,16 +80,16 @@
                 <fieldset class="form-group">
                     <label for="gender">Gender</label>
 
-                    <input type="radio" name="gender" id="male" value="male">
+                    <input type="radio" name="gender" id="male" value="Male">
                     <label for="Male">Male</label>
 
-                    <input type="radio" name="gender" id="female" value="female">
+                    <input type="radio" name="gender" id="female" value="Female">
                     <label for="female">Female</label>
                 </fieldset>
                 
                 <fieldset class="form-group">
                     <label>Address</label>
-                    <input type="text" value="<c:out value='${user.address}' />" class="form-control" name="adress"
+                    <input type="text" value="<c:out value='${user.address}' />" class="form-control" name="address"
                         required="required">
                 </fieldset>
                 <fieldset class="form-group">
