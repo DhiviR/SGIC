@@ -7,27 +7,27 @@ public class User {
     private int grade;
     private int id;
     private String name;
-    private String sex;
+    private String gender;
     private String telephone;
 
-    public User(String address, int grade, int age, int id, String name, String sex, String telephone) {
+    public User(String address, int grade, int age, int id, String name, String gender, String telephone) {
 	super();
 	this.address = address;
 	this.grade = grade;
 	this.age = age;
 	this.id = id;
 	this.name = name;
-	this.sex = sex;
+	this.gender = gender;
 	this.telephone = telephone;
     }
 
-    public User(String address, int grade, int age, String name, String sex, String telephone) {
+    public User(String address, int grade, int age, String name, String gender, String telephone) {
 	super();
 	this.address = address;
 	this.grade = grade;
 	this.age = age;
 	this.name = name;
-	this.sex = sex;
+	this.gender = gender;
 	this.telephone = telephone;
     }
 
@@ -51,8 +51,8 @@ public class User {
 	return name;
     }
 
-    public String getSex() {
-	return sex;
+    public String getGender() {
+	return gender;
     }
 
     public String getTelephone() {
@@ -79,8 +79,8 @@ public class User {
 	this.name = name;
     }
 
-    public void setSex(String sex) {
-	this.sex = sex;
+    public void setGender(String gender) {
+	this.gender = gender;
     }
 
     public void setTelephone(String telephone) {

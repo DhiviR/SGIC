@@ -3,10 +3,10 @@
   <display-name>Student registration system</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
-    <welcome-file>userList.jsp</welcome-file>
+    <welcome-file>dashboard.jsp</welcome-file>
     <welcome-file>index.htm</welcome-file>
-    <welcome-file>userList.html</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>defult.html</welcome-file>
+    <welcome-file>dashboard.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
 </web-app>

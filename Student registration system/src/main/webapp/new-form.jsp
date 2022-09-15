@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Student registration system</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 </head>
@@ -28,10 +28,10 @@
         <div class="card">
             <div class="card-body">
                 <c:if test="${user != null}">
-                    <form action="update" method="post"></form>
+                    <form action="update" method="post">
                 </c:if>
                 <c:if test="${user == null}">
-                    <form action="insert" method="post"></form>
+                    <form action="insert" method="post">                    
                 </c:if>
 
                 <caption>
@@ -39,7 +39,7 @@
                         <c:if test="${user != null}">
                             Edit Student
                         </c:if>
-                        <c:if test="${user != null}">
+                        <c:if test="${user == null}">
                             Add new student
                         </c:if>
                     </h2>
@@ -78,28 +78,29 @@
                 </fieldset>    
 
                 <fieldset class="form-group">
-                    <label for="sex">Sex</label>
+                    <label for="gender">Gender</label>
 
-                    <input type="radio" name="sex" id="male" value="male">
+                    <input type="radio" name="gender" id="male" value="male">
                     <label for="Male">Male</label>
 
-                    <input type="radio" name="sex" id="female" value="female">
+                    <input type="radio" name="gender" id="female" value="female">
                     <label for="female">Female</label>
                 </fieldset>
                 
                 <fieldset class="form-group">
                     <label>Address</label>
-                    <input type="text" value="<c:out value='${user.address}' />" class="form-control" name="name"
+                    <input type="text" value="<c:out value='${user.address}' />" class="form-control" name="adress"
                         required="required">
                 </fieldset>
                 <fieldset class="form-group">
                     <label>Telephone</label>
-                    <input type="text" value="<c:out value='${user.telephone}' />" class="form-control" name="name"
+                    <input type="text" value="<c:out value='${user.telephone}' />" class="form-control" name="telephone"
                         required="required">
                 </fieldset>
 
                 <button type="submit" class="btn btn-success">Save</button>
-
+			</form>
+			
             </div>
         </div>
     </div>

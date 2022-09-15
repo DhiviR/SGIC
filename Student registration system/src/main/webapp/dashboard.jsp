@@ -41,7 +41,7 @@
                         <th>Name</th>
                         <th>Grade</th>
                         <th>Age</th>
-                        <th>Sex</th>
+                        <th>Gender</th>
                         <th>Address</th>
                         <th>Telephone</th>
                     </tr>
@@ -53,7 +53,7 @@
                             <td><c:out value="${user.name}" /></td>
                             <td><c:out value="${user.grade}" /></td>
                             <td><c:out value="${user.age}" /></td>
-                            <td><c:out value="${user.sex}" /></td>
+                            <td><c:out value="${user.gender}" /></td>
                             <td><c:out value="${user.address}" /></td>
                             <td><c:out value="${user.telephone}" /></td>
                             <td>
