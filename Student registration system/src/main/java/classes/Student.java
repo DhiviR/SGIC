@@ -1,6 +1,6 @@
 package classes;
 
-public class User {
+public class Student {
 
     private int id;
     private String name;
@@ -10,7 +10,7 @@ public class User {
     private String address;
     private String telephone;
 
-    public User(String name, int grade, int age, String gender, String address, String telephone) {
+    public Student(String name, int grade, int age, String gender, String address, String telephone) {
 	super();
 	this.name = name;
 	this.grade = grade;
@@ -20,7 +20,7 @@ public class User {
 	this.telephone = telephone;
     }
 
-    public User(int id, String name, int grade, int age, String gender, String address, String telephone) {
+    public Student(int id, String name, int grade, int age, String gender, String address, String telephone) {
 	super();
 	this.id = id;
 	this.name = name;

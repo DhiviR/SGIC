@@ -11,21 +11,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import classes.User;
-import classes.UserDAO;
+import classes.Student;
+import classes.StudentDAO;
 
 /**
  * Servlet implementation class Registration
  */
 @WebServlet("/")
-public class Management extends HttpServlet {
+public class StudentServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    private UserDAO userDAO;
+    private StudentDAO studentDAO;
 
     @Override
     public void init() {
-	userDAO = new UserDAO();
+	studentDAO = new StudentDAO();
     }
 
     /**
@@ -52,15 +52,15 @@ public class Management extends HttpServlet {
 		break;
 //
 //	    case "/delete":
-//		deleteUser(request, response);
+//		deleteStudent(request, response);
 //		break;
 //
 //	    case "/update":
-//		updateUser(request, response);
+//		updateStudent(request, response);
 //		break;
 
 	    default:
-		listUser(request, response);
+		listStudent(request, response);
 		break;
 	    }
 	} catch (SQLException ex) {
@@ -96,8 +96,8 @@ public class Management extends HttpServlet {
 	String address = request.getParameter("address");
 	String telephone = request.getParameter("telephone");
 
-	User user = new User(name, grade, age, gender, address, telephone);
-	userDAO.insertUser(user);
+	Student student = new Student(name, grade, age, gender, address, telephone);
+	studentDAO.insertStudent(student);
 
 	response.sendRedirect("list");
     }
@@ -106,17 +106,17 @@ public class Management extends HttpServlet {
 	    throws SQLException, IOException, ServletException {
 	int id = Integer.parseInt(request.getParameter("id"));
 
-	User existingUser = userDAO.selectUser(id);
+	Student existingStudent = studentDAO.selectStudent(id);
 	RequestDispatcher dispatcher = request.getRequestDispatcher("new-form.jsp");
-	request.setAttribute("user", existingUser);
+	request.setAttribute("student", existingStudent);
 	dispatcher.forward(request, response);
     }
 
-//    private void deleteUser(HttpServletRequest request, HttpServletResponse response)
+//    private void deleteStudent(HttpServletRequest request, HttpServletResponse response)
 //	    throws ServletException, IOException, SQLException {
 //	int id = Integer.parseInt(request.getParameter("id"));
 //	try {
-//	    userDAO.deleteUser(id);
+//	    studentDAO.deleteStudent(id);
 //	} catch (Exception e) {
 //	    e.printStackTrace();
 //	}
@@ -125,7 +125,7 @@ public class Management extends HttpServlet {
 //    }
 
 //
-//    private void updateUser(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+//    private void updateStudent(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
 //	int id = Integer.parseInt(request.getParameter("id"));
 //	String name = request.getParameter("name");
 //	int grade = Integer.parseInt(request.getParameter("grade"));
@@ -134,16 +134,16 @@ public class Management extends HttpServlet {
 //	String address = request.getParameter("address");
 //	String telephone = request.getParameter("telephone");
 //
-//	User user = new User(address, grade, age, id, name, gender, telephone);
+//	Student student = new Student(address, grade, age, id, name, gender, telephone);
 //
-//	userDAO.updateUser(user);
+//	studentDAO.updateStudent(student);
 //	response.sendRedirect("list");
 //    }
 
-    private void listUser(HttpServletRequest request, HttpServletResponse response)
+    private void listStudent(HttpServletRequest request, HttpServletResponse response)
 	    throws SQLException, IOException, ServletException {
-	List<User> listUser = userDAO.selectAllUsers();
-	request.setAttribute("listUser", listUser);
+	List<Student> listStudent = studentDAO.selectAllStudents();
+	request.setAttribute("listStudent", listStudent);
 	RequestDispatcher dispatcher = request.getRequestDispatcher("dashboard.jsp");
 	dispatcher.forward(request, response);
     }

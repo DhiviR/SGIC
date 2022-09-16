@@ -47,18 +47,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <c:forEach var="user" items="${listUser}">
+                    <c:forEach var="student" items="${listStudent}">
                         <tr>
-                            <td><c:out value="${user.id}" /></td>
-                            <td><c:out value="${user.name}" /></td>
-                            <td><c:out value="${user.grade}" /></td>
-                            <td><c:out value="${user.age}" /></td>
-                            <td><c:out value="${user.gender}" /></td>
-                            <td><c:out value="${user.address}" /></td>
-                            <td><c:out value="${user.telephone}" /></td>
+                            <td><c:out value="${student.id}" /></td>
+                            <td><c:out value="${student.name}" /></td>
+                            <td><c:out value="${student.grade}" /></td>
+                            <td><c:out value="${student.age}" /></td>
+                            <td><c:out value="${student.gender}" /></td>
+                            <td><c:out value="${student.address}" /></td>
+                            <td><c:out value="${student.telephone}" /></td>
                             <td>
-                                <a href="edit?id=<c:out value='${user.id}' />">Edit</a> &nbsp;&nbsp;&nbsp;&nbsp;
-                                <a href="delete?id=<c:out value='${user.id}' />">Delete</a>
+                                <a href="edit?id=<c:out value='${student.id}' />">Edit</a> &nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href="delete?id=<c:out value='${student.id}' />">Delete</a>
                             </td>
                         </tr>
                     </c:forEach>
