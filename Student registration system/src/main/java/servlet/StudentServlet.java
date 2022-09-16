@@ -24,7 +24,7 @@ public class StudentServlet extends HttpServlet {
     private StudentDAO studentDAO;
 
     @Override
-    public void init() {
+    public void init() throws ServletException {
 	studentDAO = new StudentDAO();
     }
 
@@ -50,14 +50,14 @@ public class StudentServlet extends HttpServlet {
 	    case "/edit":
 		showEditForm(request, response);
 		break;
-//
-//	    case "/delete":
-//		deleteStudent(request, response);
-//		break;
-//
-//	    case "/update":
-//		updateStudent(request, response);
-//		break;
+
+	    case "/delete":
+		deleteStudent(request, response);
+		break;
+
+	    case "/update":
+		updateStudent(request, response);
+		break;
 
 	    default:
 		listStudent(request, response);
@@ -80,6 +80,16 @@ public class StudentServlet extends HttpServlet {
 	doGet(request, response);
     }
 
+//    Home page list students
+    private void listStudent(HttpServletRequest request, HttpServletResponse response)
+	    throws SQLException, IOException, ServletException {
+	List<Student> listStudent = studentDAO.selectAllStudents();
+	request.setAttribute("listStudent", listStudent);
+	RequestDispatcher dispatcher = request.getRequestDispatcher("dashboard.jsp");
+	dispatcher.forward(request, response);
+    }
+
+//    Redirect to new registration form
     private void register(HttpServletRequest request, HttpServletResponse response)
 	    throws ServletException, IOException {
 
@@ -87,8 +97,8 @@ public class StudentServlet extends HttpServlet {
 	dispatcher.forward(request, response);
     }
 
-    private void insert(HttpServletRequest request, HttpServletResponse response)
-	    throws ServletException, IOException, SQLException {
+//    Insert user
+    private void insert(HttpServletRequest request, HttpServletResponse response) throws IOException, SQLException {
 	String name = request.getParameter("name");
 	int grade = Integer.parseInt(request.getParameter("grade"));
 	int age = Integer.parseInt(request.getParameter("age"));
@@ -106,46 +116,45 @@ public class StudentServlet extends HttpServlet {
 	    throws SQLException, IOException, ServletException {
 	int id = Integer.parseInt(request.getParameter("id"));
 
-	Student existingStudent = studentDAO.selectStudent(id);
-	RequestDispatcher dispatcher = request.getRequestDispatcher("new-form.jsp");
-	request.setAttribute("student", existingStudent);
-	dispatcher.forward(request, response);
+	Student existingStudent;
+
+	try {
+	    existingStudent = studentDAO.selectStudent(id);
+	    RequestDispatcher dispatcher = request.getRequestDispatcher("new-form.jsp");
+	    request.setAttribute("student", existingStudent);
+	    dispatcher.forward(request, response);
+	} catch (Exception e) {
+	    e.printStackTrace();
+	}
+
     }
 
-//    private void deleteStudent(HttpServletRequest request, HttpServletResponse response)
-//	    throws ServletException, IOException, SQLException {
-//	int id = Integer.parseInt(request.getParameter("id"));
-//	try {
-//	    studentDAO.deleteStudent(id);
-//	} catch (Exception e) {
-//	    e.printStackTrace();
-//	}
-//
-//	response.sendRedirect("list");
-//    }
+    private void deleteStudent(HttpServletRequest request, HttpServletResponse response)
+	    throws IOException, SQLException {
+	int id = Integer.parseInt(request.getParameter("id"));
+	try {
+	    studentDAO.deleteStudent(id);
+	} catch (Exception e) {
+	    e.printStackTrace();
+	}
 
-//
-//    private void updateStudent(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
-//	int id = Integer.parseInt(request.getParameter("id"));
-//	String name = request.getParameter("name");
-//	int grade = Integer.parseInt(request.getParameter("grade"));
-//	String gender = request.getParameter("gender");
-//	int age = Integer.parseInt(request.getParameter("age"));
-//	String address = request.getParameter("address");
-//	String telephone = request.getParameter("telephone");
-//
-//	Student student = new Student(address, grade, age, id, name, gender, telephone);
-//
-//	studentDAO.updateStudent(student);
-//	response.sendRedirect("list");
-//    }
+	response.sendRedirect("list");
+    }
 
-    private void listStudent(HttpServletRequest request, HttpServletResponse response)
-	    throws SQLException, IOException, ServletException {
-	List<Student> listStudent = studentDAO.selectAllStudents();
-	request.setAttribute("listStudent", listStudent);
-	RequestDispatcher dispatcher = request.getRequestDispatcher("dashboard.jsp");
-	dispatcher.forward(request, response);
+    private void updateStudent(HttpServletRequest request, HttpServletResponse response)
+	    throws SQLException, IOException {
+	int id = Integer.parseInt(request.getParameter("id"));
+	String name = request.getParameter("name");
+	int grade = Integer.parseInt(request.getParameter("grade"));
+	String gender = request.getParameter("gender");
+	int age = Integer.parseInt(request.getParameter("age"));
+	String address = request.getParameter("address");
+	String telephone = request.getParameter("telephone");
+
+	Student student = new Student(id, name, grade, age, address, gender, telephone);
+
+	studentDAO.updateStudent(student);
+	response.sendRedirect("list");
     }
 
 }

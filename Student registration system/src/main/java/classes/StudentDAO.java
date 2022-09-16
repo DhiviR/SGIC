@@ -91,6 +91,7 @@ public class StudentDAO {
 	return students;
     }
 
+//
 //  Select a Student
     public Student selectStudent(int id) {
 	Student student = null;
@@ -103,14 +104,13 @@ public class StudentDAO {
 	    ResultSet set = preparedStatement.executeQuery();
 
 	    while (set.next()) {
-		int id1 = set.getInt("id");
 		String name = set.getString("name");
 		int grade = set.getInt("grade");
 		int age = set.getInt("age");
 		String gender = set.getString("gender");
 		String address = set.getString("address");
 		String telephone = set.getString("telephone");
-		student = new Student(id1, name, grade, age, gender, address, telephone);
+		student = new Student(name, grade, age, gender, address, telephone);
 	    }
 	} catch (SQLException e) {
 	    e.printStackTrace();
@@ -119,39 +119,39 @@ public class StudentDAO {
 	return student;
     }
 
+//
 //    Update Student
-    public boolean updateStudent(Student student) {
+    public boolean updateStudent(Student student) throws SQLException {
 	boolean isUpdated = false;
 
 	try (Connection connection = getConnection();
-		PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_STUDENT)) {
+		PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_STUDENT);) {
+
+	    System.out.println(preparedStatement);
 	    preparedStatement.setString(1, student.getName());
 	    preparedStatement.setInt(2, student.getGrade());
 	    preparedStatement.setString(3, student.getGender());
 	    preparedStatement.setInt(4, student.getAge());
 	    preparedStatement.setString(5, student.getAddress());
 	    preparedStatement.setString(6, student.getTelephone());
+	    preparedStatement.setInt(7, student.getId());
 
 	    isUpdated = preparedStatement.executeUpdate() > 0;
-	} catch (SQLException e) {
-	    e.printStackTrace();
 	}
 
 	return isUpdated;
     }
-//
-//    public boolean deleteStudent(int id) throws SQLException {
-//	boolean isDeleted = false;
-//
-//	Connection connection = getConnection();
-//	PreparedStatement preparedStatement = connection.prepareStatement(DELETE_STUDENT);
-//	preparedStatement.setInt(7, id);
-//	isDeleted = preparedStatement.executeUpdate() > 0;
-//
-//	return isDeleted;
-//    }
-//
 
-//
-//    
+//    Delete student
+    public boolean deleteStudent(int id) throws SQLException {
+	boolean isDeleted = false;
+
+	try (Connection connection = getConnection();
+		PreparedStatement preparedStatement = connection.prepareStatement(DELETE_STUDENT);) {
+	    preparedStatement.setInt(1, id);
+	    isDeleted = preparedStatement.executeUpdate() > 0;
+	}
+
+	return isDeleted;
+    }
 }
