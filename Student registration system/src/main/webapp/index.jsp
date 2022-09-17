@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Student registration system</title>
+<title>School Management System</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 </head>
@@ -15,7 +15,7 @@
 	    <header>
         <nav class="navbar navbar-expand-md navbar-dark" style="background-color: blue;">
             <div class="navbar-brand">
-                Student registration system
+                School Management System
             </div>
 
             <ul class="navbar-nav">

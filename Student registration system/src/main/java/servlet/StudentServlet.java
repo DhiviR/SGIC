@@ -24,7 +24,7 @@ public class StudentServlet extends HttpServlet {
     private StudentDAO studentDAO;
 
     @Override
-    public void init() throws ServletException {
+    public void init() {
 	studentDAO = new StudentDAO();
     }
 
@@ -80,12 +80,13 @@ public class StudentServlet extends HttpServlet {
 	doGet(request, response);
     }
 
+//
 //    Home page list students
     private void listStudent(HttpServletRequest request, HttpServletResponse response)
 	    throws SQLException, IOException, ServletException {
 	List<Student> listStudent = studentDAO.selectAllStudents();
 	request.setAttribute("listStudent", listStudent);
-	RequestDispatcher dispatcher = request.getRequestDispatcher("dashboard.jsp");
+	RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
 	dispatcher.forward(request, response);
     }
 
@@ -97,6 +98,7 @@ public class StudentServlet extends HttpServlet {
 	dispatcher.forward(request, response);
     }
 
+//
 //    Insert user
     private void insert(HttpServletRequest request, HttpServletResponse response) throws IOException, SQLException {
 	String name = request.getParameter("name");

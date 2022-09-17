@@ -29,6 +29,7 @@ public class StudentDAO {
     public StudentDAO() {
     }
 
+//
     protected Connection getConnection() {
 	Connection connection = null;
 
@@ -63,6 +64,7 @@ public class StudentDAO {
 	}
     }
 
+//
 //  Select all Students
     public List<Student> selectAllStudents() {
 	List<Student> students = new ArrayList<>();
@@ -89,9 +91,10 @@ public class StudentDAO {
 	}
 
 	return students;
+
     }
 
-//
+////
 //  Select a Student
     public Student selectStudent(int id) {
 	Student student = null;
