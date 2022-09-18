@@ -86,7 +86,7 @@
 							},
 							"font": "Arial;13;0",
 							"lineStyle": 1,
-							"points": "432:456;505:389"
+							"points": "432:440;505:389"
 						},
 						{
 							"_type": "FreelineEdgeView",
@@ -226,10 +226,10 @@
 									},
 									"font": "Arial;13;1",
 									"left": 855,
-									"top": 445,
+									"top": 437,
 									"width": 105,
 									"height": 13,
-									"text": "Examination"
+									"text": "Exam"
 								},
 								{
 									"_type": "ERDColumnCompartmentView",
@@ -242,16 +242,16 @@
 									},
 									"font": "Arial;13;0",
 									"left": 855,
-									"top": 463,
+									"top": 455,
 									"width": 105,
 									"height": 10
 								}
 							],
 							"font": "Arial;13;0",
 							"left": 855,
-							"top": 440,
+							"top": 432,
 							"width": 105,
-							"height": 49,
+							"height": 57,
 							"nameLabel": {
 								"$ref": "AAAAAAGDMsMCAX9AFyo="
 							},
@@ -853,7 +853,7 @@
 										"$ref": "AAAAAAGDMuGfB4EMbEo="
 									},
 									"font": "Arial;13;0",
-									"left": 432,
+									"left": 433,
 									"top": 505,
 									"height": 13,
 									"alpha": 0.5235987755982988,
@@ -888,7 +888,7 @@
 								"$ref": "AAAAAAGDMsLTNn8yG+M="
 							},
 							"lineStyle": 3,
-							"points": "413:489;440:632;615:629",
+							"points": "414:489;440:632;615:629",
 							"nameLabel": {
 								"$ref": "AAAAAAGDMuGfCIEN/H4="
 							},
@@ -908,7 +908,7 @@
 							"font": "Arial;13;0",
 							"left": 488,
 							"top": 376,
-							"width": 49,
+							"width": 73,
 							"height": 25
 						},
 						{
@@ -922,59 +922,7 @@
 							"top": 376,
 							"width": 60,
 							"height": 25,
-							"text": "Sex"
-						},
-						{
-							"_type": "ERDEntityView",
-							"_id": "AAAAAAGDMsLTNn8yG+M=",
-							"_parent": {
-								"$ref": "AAAAAAGDMsLDgn8sheE="
-							},
-							"model": {
-								"$ref": "AAAAAAGDMsLTNX8wsQM="
-							},
-							"subViews": [
-								{
-									"_type": "LabelView",
-									"_id": "AAAAAAGDMsLTNn8zTHE=",
-									"_parent": {
-										"$ref": "AAAAAAGDMsLTNn8yG+M="
-									},
-									"font": "Arial;13;1",
-									"left": 360,
-									"top": 445,
-									"width": 98.3818359375,
-									"height": 13,
-									"text": "Student"
-								},
-								{
-									"_type": "ERDColumnCompartmentView",
-									"_id": "AAAAAAGDMsLTN3807DM=",
-									"_parent": {
-										"$ref": "AAAAAAGDMsLTNn8yG+M="
-									},
-									"model": {
-										"$ref": "AAAAAAGDMsLTNX8wsQM="
-									},
-									"font": "Arial;13;0",
-									"left": 360,
-									"top": 463,
-									"width": 98.3818359375,
-									"height": 10
-								}
-							],
-							"font": "Arial;13;0",
-							"showShadow": false,
-							"left": 360,
-							"top": 440,
-							"width": 98.3818359375,
-							"height": 49,
-							"nameLabel": {
-								"$ref": "AAAAAAGDMsLTNn8zTHE="
-							},
-							"columnCompartment": {
-								"$ref": "AAAAAAGDMsLTN3807DM="
-							}
+							"text": "Gender"
 						},
 						{
 							"_type": "EllipseView",
@@ -1300,6 +1248,58 @@
 							"headNameLabel": {
 								"$ref": "AAAAAAGDP93iOSeO/Oo="
 							}
+						},
+						{
+							"_type": "ERDEntityView",
+							"_id": "AAAAAAGDMsLTNn8yG+M=",
+							"_parent": {
+								"$ref": "AAAAAAGDMsLDgn8sheE="
+							},
+							"model": {
+								"$ref": "AAAAAAGDMsLTNX8wsQM="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAGDMsLTNn8zTHE=",
+									"_parent": {
+										"$ref": "AAAAAAGDMsLTNn8yG+M="
+									},
+									"font": "Arial;13;1",
+									"left": 360,
+									"top": 429,
+									"width": 98.3818359375,
+									"height": 13,
+									"text": "Student"
+								},
+								{
+									"_type": "ERDColumnCompartmentView",
+									"_id": "AAAAAAGDMsLTN3807DM=",
+									"_parent": {
+										"$ref": "AAAAAAGDMsLTNn8yG+M="
+									},
+									"model": {
+										"$ref": "AAAAAAGDMsLTNX8wsQM="
+									},
+									"font": "Arial;13;0",
+									"left": 360,
+									"top": 447,
+									"width": 98.3818359375,
+									"height": 10
+								}
+							],
+							"font": "Arial;13;0",
+							"showShadow": false,
+							"left": 360,
+							"top": 424,
+							"width": 98.3818359375,
+							"height": 65,
+							"nameLabel": {
+								"$ref": "AAAAAAGDMsLTNn8zTHE="
+							},
+							"columnCompartment": {
+								"$ref": "AAAAAAGDMsLTN3807DM="
+							}
 						}
 					]
 				},
@@ -1409,7 +1409,7 @@
 					"_parent": {
 						"$ref": "AAAAAAGDMsLDf38r/w0="
 					},
-					"name": "Examination",
+					"name": "Exam",
 					"ownedElements": [
 						{
 							"_type": "ERDRelationship",

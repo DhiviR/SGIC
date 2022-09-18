@@ -39,6 +39,7 @@ public class StudentServlet extends HttpServlet {
 
 	try {
 	    switch (action) {
+
 	    case "/register":
 		register(request, response);
 		break;
@@ -80,13 +81,12 @@ public class StudentServlet extends HttpServlet {
 	doGet(request, response);
     }
 
-//
 //    Home page list students
     private void listStudent(HttpServletRequest request, HttpServletResponse response)
 	    throws SQLException, IOException, ServletException {
 	List<Student> listStudent = studentDAO.selectAllStudents();
 	request.setAttribute("listStudent", listStudent);
-	RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+	RequestDispatcher dispatcher = request.getRequestDispatcher("student-list.jsp");
 	dispatcher.forward(request, response);
     }
 
@@ -98,7 +98,6 @@ public class StudentServlet extends HttpServlet {
 	dispatcher.forward(request, response);
     }
 
-//
 //    Insert user
     private void insert(HttpServletRequest request, HttpServletResponse response) throws IOException, SQLException {
 	String name = request.getParameter("name");
@@ -111,7 +110,7 @@ public class StudentServlet extends HttpServlet {
 	Student student = new Student(name, grade, age, gender, address, telephone);
 	studentDAO.insertStudent(student);
 
-	response.sendRedirect("list");
+	response.sendRedirect("listStudent");
     }
 
     private void showEditForm(HttpServletRequest request, HttpServletResponse response)
@@ -134,7 +133,7 @@ public class StudentServlet extends HttpServlet {
 	    e.printStackTrace();
 	}
 
-	response.sendRedirect("list");
+	response.sendRedirect("listStudent");
     }
 
     private void updateStudent(HttpServletRequest request, HttpServletResponse response)
@@ -152,7 +151,7 @@ public class StudentServlet extends HttpServlet {
 	Student student = new Student(id, name, grade, age, gender, address, telephone);
 
 	studentDAO.updateStudent(student);
-	response.sendRedirect("list");
+	response.sendRedirect("listStudent");
     }
 
 }

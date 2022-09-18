@@ -29,7 +29,6 @@ public class StudentDAO {
     public StudentDAO() {
     }
 
-//
     protected Connection getConnection() {
 	Connection connection = null;
 
@@ -47,7 +46,6 @@ public class StudentDAO {
 
 //  Insert Student
     public void insertStudent(Student student) throws SQLException {
-	System.out.println(INSERT_STUDENT);
 	try (Connection connection = getConnection();
 		PreparedStatement preparedStatement = connection.prepareStatement(INSERT_STUDENT)) {
 	    preparedStatement.setString(1, student.getName());
