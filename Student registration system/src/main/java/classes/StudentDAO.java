@@ -18,13 +18,13 @@ public class StudentDAO {
     private static final String INSERT_STUDENT = "INSERT INTO students"
 	    + " (Name, Grade, Age, Gender, Address, Telephone) " + "VALUES (?, ?, ?, ?, ?, ?)";
 
-    private static final String SELECT_STUDENT_BY_ID = "SELECT Name, Grade, Age, Gender, Address, Telephone from students WHERE ID = ?";
+    private static final String SELECT_STUDENT_BY_ID = "SELECT Name, Grade, Age, Gender, Address, Telephone, ID from students WHERE ID = ?";
 
     private static final String SELECT_ALL_STUDENTS = "SELECT * FROM students";
 
     private static final String DELETE_STUDENT = "DELETE from students WHERE id = ?";
 
-    private static final String UPDATE_STUDENT = "UPDATE students SET Name = ?, Grade = ?, Age = ?, Gender = ?, Address = ?, Telephone = ? WHERE ID = ?)";
+    private static final String UPDATE_STUDENT = "UPDATE students SET Name = ?, Grade = ?, Age = ?, Gender = ?, Address = ?, Telephone = ? WHERE (ID = ?)";
 
     public StudentDAO() {
     }
@@ -94,7 +94,6 @@ public class StudentDAO {
 
     }
 
-////
 //  Select a Student
     public Student selectStudent(int id) {
 	Student student = null;
@@ -113,7 +112,9 @@ public class StudentDAO {
 		String gender = set.getString("gender");
 		String address = set.getString("address");
 		String telephone = set.getString("telephone");
-		student = new Student(name, grade, age, gender, address, telephone);
+		int id1 = set.getInt("id");
+		student = new Student(id1, name, grade, age, gender, address, telephone);
+
 	    }
 	} catch (SQLException e) {
 	    e.printStackTrace();
@@ -129,16 +130,14 @@ public class StudentDAO {
 
 	try (Connection connection = getConnection();
 		PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_STUDENT);) {
-
-	    System.out.println(preparedStatement);
 	    preparedStatement.setString(1, student.getName());
 	    preparedStatement.setInt(2, student.getGrade());
-	    preparedStatement.setString(3, student.getGender());
-	    preparedStatement.setInt(4, student.getAge());
+	    preparedStatement.setInt(3, student.getAge());
+	    preparedStatement.setString(4, student.getGender());
 	    preparedStatement.setString(5, student.getAddress());
 	    preparedStatement.setString(6, student.getTelephone());
 	    preparedStatement.setInt(7, student.getId());
-
+	    System.out.println(preparedStatement);
 	    isUpdated = preparedStatement.executeUpdate() > 0;
 	}
 

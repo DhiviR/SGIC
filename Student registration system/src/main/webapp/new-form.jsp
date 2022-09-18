@@ -24,8 +24,8 @@
         </nav>
     </header>
     <br>
-    <div class="container col-md-5">
-        <div class="card">
+    <div class="container col-md-5" >
+        <div class="card" style="height: 500px" >
             <div class="card-body">
                 <c:if test="${student != null}">
                     <form action="update" method="post">
@@ -46,7 +46,7 @@
                 </caption>
 
                 <c:if test="${student != null}">
-                    <input type="hidden" name="id" value="<c:out value='${student.id}'/>" />
+                    <input type="hidden" name="id" value="<c:out value='${student.id}'/>" class="form-control"/>
                 </c:if>
 
                 <fieldset class="form-group">
@@ -56,19 +56,19 @@
                 </fieldset>
                 <fieldset class="form-group">
                     <label>Grade</label>
-                    <select name="grade" id="">
+                    <select name="grade" class="btn btn-secondary dropdown-toggle">
                         <option value="select" selected>Select grade</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
+                        <option value="1" ${student.grade == 1 ? 'selected' : '' }>1</option>
+                        <option value="2" ${student.grade == 2 ? 'selected' : '' }>2</option>
+                        <option value="3" ${student.grade == 3 ? 'selected' : '' }>3</option>
+                        <option value="4" ${student.grade == 4 ? 'selected' : '' }>4</option>
+                        <option value="5" ${student.grade == 5 ? 'selected' : '' }>5</option>
+                        <option value="6" ${student.grade == 6 ? 'selected' : '' }>6</option>
+                        <option value="7" ${student.grade == 7 ? 'selected' : '' }>7</option>
+                        <option value="8" ${student.grade == 8 ? 'selected' : '' }>8</option>
+                        <option value="9" ${student.grade == 9 ? 'selected' : '' }>9</option>
+                        <option value="10" ${student.grade == 10 ? 'selected' : '' }>10</option>
+                        <option value="11" ${student.grade == 11? 'selected' : '' }>11</option>
                     </select>
                 </fieldset>
                 <fieldset class="form-group">
@@ -80,10 +80,10 @@
                 <fieldset class="form-group">
                     <label for="gender">Gender</label>
 
-                    <input type="radio" name="gender" id="male" value="Male">
+                    <input type="radio" name="gender" id="male" ${student.gender=='Male' ? 'checked' : '' } value="Male">
                     <label for="Male">Male</label>
 
-                    <input type="radio" name="gender" id="female" value="Female">
+                    <input type="radio" name="gender" id="female" ${student.gender=='Female' ? 'checked' : '' }  value="Female">
                     <label for="female">Female</label>
                 </fieldset>
                 

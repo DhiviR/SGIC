@@ -11,7 +11,6 @@ public class Student {
     private String telephone;
 
     public Student(String name, int grade, int age, String gender, String address, String telephone) {
-	super();
 	this.name = name;
 	this.grade = grade;
 	this.age = age;
@@ -21,7 +20,6 @@ public class Student {
     }
 
     public Student(int id, String name, int grade, int age, String gender, String address, String telephone) {
-	super();
 	this.id = id;
 	this.name = name;
 	this.grade = grade;

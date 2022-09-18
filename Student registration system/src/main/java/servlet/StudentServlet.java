@@ -118,16 +118,10 @@ public class StudentServlet extends HttpServlet {
 	    throws SQLException, IOException, ServletException {
 	int id = Integer.parseInt(request.getParameter("id"));
 
-	Student existingStudent;
-
-	try {
-	    existingStudent = studentDAO.selectStudent(id);
-	    RequestDispatcher dispatcher = request.getRequestDispatcher("new-form.jsp");
-	    request.setAttribute("student", existingStudent);
-	    dispatcher.forward(request, response);
-	} catch (Exception e) {
-	    e.printStackTrace();
-	}
+	Student existingStudent = studentDAO.selectStudent(id);
+	RequestDispatcher dispatcher = request.getRequestDispatcher("new-form.jsp");
+	request.setAttribute("student", existingStudent);
+	dispatcher.forward(request, response);
 
     }
 
@@ -153,7 +147,9 @@ public class StudentServlet extends HttpServlet {
 	String address = request.getParameter("address");
 	String telephone = request.getParameter("telephone");
 
-	Student student = new Student(id, name, grade, age, address, gender, telephone);
+//	System.out.println(id + " " + name + " " + grade + " " + gender + " " + age + " " + address + " " + telephone);
+
+	Student student = new Student(id, name, grade, age, gender, address, telephone);
 
 	studentDAO.updateStudent(student);
 	response.sendRedirect("list");
