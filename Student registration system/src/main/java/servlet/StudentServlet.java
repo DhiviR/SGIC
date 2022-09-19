@@ -17,7 +17,7 @@ import classes.StudentDAO;
 /**
  * Servlet implementation class Registration
  */
-@WebServlet("/")
+@WebServlet("/students")
 public class StudentServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 

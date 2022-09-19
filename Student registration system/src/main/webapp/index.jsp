@@ -22,6 +22,11 @@
 					<button class="btn btn-warning" type="submit">Examination</button>
 				</form>
 			</li>
+			<li class="list-group-item">
+				<form action="results" method="post">
+					<button class="btn btn-secondary form-control" type="submit">Results</button>
+				</form>
+			</li>
 		    
   		</ul>
 	</div>
