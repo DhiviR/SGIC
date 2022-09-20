@@ -19,7 +19,7 @@
             </div>
 
             <ul class="navbar-nav">
-                <li><a href="<%=request.getContextPath() %>/listStudent" class="nav-link">Students List</a></li>
+                <li><a href="<%=request.getContextPath() %>/students" class="nav-link">Students List</a></li>
             </ul>
         </nav>
     </header>
@@ -30,7 +30,7 @@
             <h3>List of Students</h3>
             <hr>
             <div class="container text-left">
-                <a href="<%=request.getContextPath()%>/register" class="btn btn-success">Add new student</a>
+                <a href="<%=request.getContextPath()%>/add-new-student" class="btn btn-success">Add new student</a>
             </div>
             <br>
 
@@ -57,8 +57,8 @@
                             <td><c:out value="${student.address}" /></td>
                             <td><c:out value="${student.telephone}" /></td>
                             <td>
-                                <a href="edit?id=<c:out value='${student.id}' />">Edit</a> &nbsp;&nbsp;&nbsp;&nbsp;
-                                <a href="delete?id=<c:out value='${student.id}' />">Delete</a>
+                                <a href="edit-student?id=<c:out value='${student.id}' />">Edit</a> &nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href="delete-student?id=<c:out value='${student.id}' />">Delete</a>
                             </td>
                         </tr>
                     </c:forEach>

@@ -10,6 +10,8 @@ import java.util.List;
 
 public class StudentDAO {
 
+    private static StudentDAO instance;
+
     private String jdbcURL = "jdbc:mysql://localhost:3306/student_registration_system?useSSL=false";
     private String jdbcDriver = "com.mysql.cj.jdbc.Driver";
     private String jdbcUsername = "root";
@@ -26,7 +28,15 @@ public class StudentDAO {
 
     private static final String UPDATE_STUDENT = "UPDATE students SET Name = ?, Grade = ?, Age = ?, Gender = ?, Address = ?, Telephone = ? WHERE (ID = ?)";
 
-    public StudentDAO() {
+    private StudentDAO() {
+    }
+
+    public static StudentDAO getInstance() {
+	if (instance == null) {
+	    instance = new StudentDAO();
+	}
+
+	return instance;
     }
 
     protected Connection getConnection() {
@@ -62,7 +72,6 @@ public class StudentDAO {
 	}
     }
 
-//
 //  Select all Students
     public List<Student> selectAllStudents() {
 	List<Student> students = new ArrayList<>();
