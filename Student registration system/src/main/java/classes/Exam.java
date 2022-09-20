@@ -4,21 +4,21 @@ public class Exam {
     private int id;
     private int term;
     private int grade;
-    private String subjectName;
+    private String subject;
 
-    public Exam(int term, int grade, String subjectName) {
+    public Exam(int term, int grade, String subject) {
 	super();
 	this.term = term;
 	this.grade = grade;
-	this.subjectName = subjectName;
+	this.subject = subject;
     }
 
-    public Exam(int id, int term, int grade, String subjectName) {
+    public Exam(int id, int term, int grade, String subject) {
 	super();
 	this.id = id;
 	this.term = term;
 	this.grade = grade;
-	this.subjectName = subjectName;
+	this.subject = subject;
     }
 
     public int getId() {
@@ -45,11 +45,11 @@ public class Exam {
 	this.grade = grade;
     }
 
-    public String getSubjectName() {
-	return subjectName;
+    public String getSubject() {
+	return subject;
     }
 
-    public void setSubjectName(String subjectName) {
-	this.subjectName = subjectName;
+    public void setSubject(String subject) {
+	this.subject = subject;
     }
 }

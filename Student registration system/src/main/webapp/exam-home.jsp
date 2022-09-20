@@ -16,7 +16,7 @@
             </div>
 
             <ul class="navbar-nav">
-                <li><a href="<%=request.getContextPath() %>/listExam" class="nav-link">Exams</a></li>
+                <li><a href="<%=request.getContextPath() %>/exams" class="nav-link">Exams</a></li>
             </ul>
         </nav>
     </header>
@@ -27,7 +27,7 @@
             <h3>List of Exams</h3>
             <hr>
             <div class="container text-left">
-                <a href="<%=request.getContextPath()%>/register" class="btn btn-warning">Add new exam</a>
+                <a href="<%=request.getContextPath()%>/add-new-exam" class="btn btn-warning">Add new exam</a>
             </div>
             <br>
 
@@ -48,8 +48,8 @@
                             <td><c:out value="${exam.grade}" /></td>
                             <td><c:out value="${exam.subjectName}" /></td>
                             <td>
-                                <a href="edit?id=<c:out value='${student.id}' />">Edit</a> &nbsp;&nbsp;&nbsp;&nbsp;
-                                <a href="delete?id=<c:out value='${student.id}' />">Delete</a>
+                                <a href="edit-exam?id=<c:out value='${student.id}' />">Edit</a> &nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href="delete-exam?id=<c:out value='${student.id}' />">Delete</a>
                             </td>
                         </tr>
                     </c:forEach>

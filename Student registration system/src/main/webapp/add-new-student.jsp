@@ -17,7 +17,7 @@
         <nav class="navbar bavbar-expand-md navbar-dark" style="background-color: blue;">
             <ul class="navbar-nav">
                 <li>
-                    <a href="<%=request.getContextPath()%>/listStudent" class="nav-link">Students</a>
+                    <a href="<%=request.getContextPath()%>/students" class="nav-link">Students</a>
                 </li>
             </ul>
 
