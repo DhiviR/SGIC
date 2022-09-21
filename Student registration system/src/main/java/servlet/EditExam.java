@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,10 +13,10 @@ import classes.Exam;
 import classes.ExamDAO;
 
 /**
- * Servlet implementation class InsertExam
+ * Servlet implementation class EditExam
  */
-@WebServlet("/insert-exam")
-public class InsertExam extends HttpServlet {
+@WebServlet("/edit-exam")
+public class EditExam extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     private ExamDAO examDAO = ExamDAO.getInstance();
@@ -23,7 +24,7 @@ public class InsertExam extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public InsertExam() {
+    public EditExam() {
 	super();
 	// TODO Auto-generated constructor stub
     }
@@ -36,13 +37,12 @@ public class InsertExam extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	    throws ServletException, IOException {
 	// TODO Auto-generated method stub
-	int term = Integer.parseInt(request.getParameter("term"));
-	int grade = Integer.parseInt(request.getParameter("grade"));
-	String subject = request.getParameter("subject");
+	int examId = Integer.parseInt(request.getParameter("id"));
 
-	examDAO.insertExam(new Exam(term, grade, subject));
-
-	response.sendRedirect("exams");
+	Exam existingExam = examDAO.selectExam(examId);
+	RequestDispatcher dispatcher = request.getRequestDispatcher("add-new-exam.jsp");
+	request.setAttribute("exam", existingExam);
+	dispatcher.forward(request, response);
     }
 
     /**

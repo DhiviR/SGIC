@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,10 +13,10 @@ import classes.Exam;
 import classes.ExamDAO;
 
 /**
- * Servlet implementation class InsertExam
+ * Servlet implementation class UpdateExam
  */
-@WebServlet("/insert-exam")
-public class InsertExam extends HttpServlet {
+@WebServlet("/update-exam")
+public class UpdateExam extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     private ExamDAO examDAO = ExamDAO.getInstance();
@@ -23,7 +24,7 @@ public class InsertExam extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public InsertExam() {
+    public UpdateExam() {
 	super();
 	// TODO Auto-generated constructor stub
     }
@@ -36,13 +37,21 @@ public class InsertExam extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	    throws ServletException, IOException {
 	// TODO Auto-generated method stub
+	int examId = Integer.parseInt(request.getParameter("examId"));
 	int term = Integer.parseInt(request.getParameter("term"));
 	int grade = Integer.parseInt(request.getParameter("grade"));
 	String subject = request.getParameter("subject");
 
-	examDAO.insertExam(new Exam(term, grade, subject));
+	Exam exam = new Exam(examId, term, grade, subject);
 
+	try {
+	    examDAO.updateExam(exam);
+	} catch (SQLException e) {
+	    // TODO Auto-generated catch block
+	    e.printStackTrace();
+	}
 	response.sendRedirect("exams");
+
     }
 
     /**

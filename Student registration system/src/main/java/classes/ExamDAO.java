@@ -21,6 +21,10 @@ public class ExamDAO {
 
     private static final String SELECT_ALL_EXAMS = "SELECT * FROM exams";
 
+    private static final String SELECT_EXAM_BY_ID = "SELECT exam_id, term, grade, subject FROM exams WHERE exam_id = ?";
+
+    private static final String UPDATE_EXAM = "UPDATE exams SET term = ?, grade = ?, subject = ? WHERE exam_id = ?";
+
     private ExamDAO() {
 
     }
@@ -86,4 +90,44 @@ public class ExamDAO {
 	}
     }
 
+    public Exam selectExam(int examId) {
+	Exam exam = null;
+	try (Connection connection = getConnection();
+		PreparedStatement preparedStatement = connection.prepareStatement(SELECT_EXAM_BY_ID);) {
+	    preparedStatement.setInt(1, examId);
+	    System.out.println(preparedStatement);
+
+	    ResultSet set = preparedStatement.executeQuery();
+	    while (set.next()) {
+		int term = set.getInt("term");
+		int grade = set.getInt("grade");
+		String subject = set.getString("subject");
+
+		exam = new Exam(examId, term, grade, subject);
+
+		System.out.println(term + " " + grade + " " + subject);
+	    }
+	} catch (SQLException e) {
+	    e.printStackTrace();
+	}
+
+	return exam;
+    }
+
+    public boolean updateExam(Exam exam) throws SQLException {
+	boolean isUpdated = false;
+
+	try (Connection connection = getConnection();
+		PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_EXAM);) {
+	    preparedStatement.setInt(1, exam.getTerm());
+	    preparedStatement.setInt(2, exam.getGrade());
+	    preparedStatement.setString(3, exam.getSubject());
+	    preparedStatement.setInt(4, exam.getExamId());
+	    System.out.println(preparedStatement);
+	    isUpdated = preparedStatement.executeUpdate() > 0;
+	}
+
+	return isUpdated;
+
+    }
 }

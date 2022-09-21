@@ -44,7 +44,7 @@
                 </caption>
 
                 <c:if test="${exam != null}">
-                    <input type="hidden" name="id" value="<c:out value='${exam.id}'/>" class="form-control"/>
+                    <input type="hidden" name="examId" value="<c:out value='${exam.examId}'/>" class="form-control"/>
                 </c:if>
 				<br>
 					
@@ -82,7 +82,7 @@
                         <option value="select" selected>Select subject</option>
                         <option value="Maths" ${exam.subject == 'Maths' ? 'selected' : '' }>Maths</option>
                         <option value="Science" ${exam.subject == 'Science' ? 'selected' : '' }>Science</option>
-                        <option value="English" ${exam.english == 'English' ? 'selected' : '' }>English</option>
+                        <option value="English" ${exam.subject == 'English' ? 'selected' : '' }>English</option>
                    </select>
                 </fieldset>
 				<br>
