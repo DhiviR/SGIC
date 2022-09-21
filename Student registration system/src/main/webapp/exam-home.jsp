@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,10 +11,10 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 </head>
-<body>
-<header>
-        <nav class="navbar navbar-expand-md navbar-dark bg-warning">
-            <div class="navbar-brand">
+<body class="container">
+	<header>
+        <nav class="navbar navbar-expand-md navbar-dark bg-warning ">
+            <div class="navbar-brand container">
                 School Management System
             </div>
 
@@ -34,19 +37,19 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Term</th>
+                        <th>Exam ID</th>
+                        <th>Subject</th>
                         <th>Grade</th>
-                        <th>Subject Name</th>
+                        <th>Term</th>
                     </tr>
                 </thead>
-                <tbody >
+                <tbody>
                     <c:forEach var="exam" items="${listExam}">
                         <tr>
-                            <td><c:out value="${exam.id}" /></td>
-                            <td><c:out value="${exam.term}" /></td>
+                            <td><c:out value="${exam.examId}" /></td>
+                            <td><c:out value="${exam.subject}" /></td>
                             <td><c:out value="${exam.grade}" /></td>
-                            <td><c:out value="${exam.subjectName}" /></td>
+                            <td><c:out value="${exam.term}" /></td>
                             <td>
                                 <a href="edit-exam?id=<c:out value='${student.id}' />">Edit</a> &nbsp;&nbsp;&nbsp;&nbsp;
                                 <a href="delete-exam?id=<c:out value='${student.id}' />">Delete</a>

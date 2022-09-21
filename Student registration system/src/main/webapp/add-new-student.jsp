@@ -25,7 +25,7 @@
     </header>
     <br>
     <div class="container col-md-5" >
-        <div class="card" style="height: 500px" >
+        <div class="card" >
             <div class="card-body">
                 <c:if test="${student != null}">
                     <form action="update-student" method="post">
@@ -48,14 +48,15 @@
                 <c:if test="${student != null}">
                     <input type="hidden" name="id" value="<c:out value='${student.id}'/>" class="form-control"/>
                 </c:if>
-
+				<br>
                 <fieldset class="form-group">
                     <label>Name</label>
                     <input type="text" value="<c:out value='${student.name}' />" class="form-control" name="name"
                         required="required">
                 </fieldset>
+                <br>
                 <fieldset class="form-group">
-                    <label>Grade</label>
+                    <label>Grade</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <select name="grade" class="btn btn-secondary dropdown-toggle">
                         <option value="select" selected>Select grade</option>
                         <option value="1" ${student.grade == 1 ? 'selected' : '' }>1</option>
@@ -71,33 +72,35 @@
                         <option value="11" ${student.grade == 11? 'selected' : '' }>11</option>
                     </select>
                 </fieldset>
+                <br>
                 <fieldset class="form-group">
                     <label>Age</label>
                     <input type="number" value="<c:out value='${student.age}' />" class="form-control" name="age"
                         required="required">
                 </fieldset>    
-
+				<br>
                 <fieldset class="form-group">
-                    <label for="gender">Gender</label>
+                    <label for="gender">Gender</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                     <input type="radio" name="gender" id="male" ${student.gender=='Male' ? 'checked' : '' } value="Male">
                     <label for="Male">Male</label>
-
+					&nbsp;&nbsp;&nbsp;
                     <input type="radio" name="gender" id="female" ${student.gender=='Female' ? 'checked' : '' }  value="Female">
                     <label for="female">Female</label>
                 </fieldset>
-                
+                <br>
                 <fieldset class="form-group">
                     <label>Address</label>
                     <input type="text" value="<c:out value='${student.address}' />" class="form-control" name="address"
                         required="required">
                 </fieldset>
+                <br>
                 <fieldset class="form-group">
                     <label>Telephone</label>
                     <input type="text" value="<c:out value='${student.telephone}' />" class="form-control" name="telephone"
                         required="required">
                 </fieldset>
-
+				<br>
                 <button type="submit" class="btn btn-success">Save</button>
 			</form>
 			

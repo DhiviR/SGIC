@@ -1,7 +1,7 @@
 package classes;
 
 public class Exam {
-    private int id;
+    private int examId;
     private int term;
     private int grade;
     private String subject;
@@ -13,20 +13,20 @@ public class Exam {
 	this.subject = subject;
     }
 
-    public Exam(int id, int term, int grade, String subject) {
+    public Exam(int examId, int term, int grade, String subject) {
 	super();
-	this.id = id;
+	this.examId = examId;
 	this.term = term;
 	this.grade = grade;
 	this.subject = subject;
     }
 
-    public int getId() {
-	return id;
+    public int getExamId() {
+	return examId;
     }
 
-    public void setId(int id) {
-	this.id = id;
+    public void setExamId(int examId) {
+	this.examId = examId;
     }
 
     public int getTerm() {

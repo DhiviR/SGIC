@@ -10,40 +10,32 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import classes.Student;
-import classes.StudentDAO;
+import classes.Exam;
+import classes.ExamDAO;
 
 /**
- * Servlet implementation class Registration
+ * Servlet implementation class ExamServlet
  */
-@WebServlet("/students")
-public class Students extends HttpServlet {
+@WebServlet("/exams")
+public class ExamDefaultServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    private StudentDAO studentDAO = StudentDAO.getInstance();
+    private ExamDAO examDAO = ExamDAO.getInstance();
 
-    /**
-     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-     *      response)
-     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	    throws ServletException, IOException {
-	List<Student> listStudent = studentDAO.selectAllStudents();
-	request.setAttribute("listStudent", listStudent);
-	RequestDispatcher dispatcher = request.getRequestDispatcher("student-home.jsp");
+	List<Exam> listExam = examDAO.selectAllExams();
+	request.setAttribute("listExam", listExam);
+	RequestDispatcher dispatcher = request.getRequestDispatcher("exam-home.jsp");
 	dispatcher.forward(request, response);
+
     }
 
-    /**
-     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-     *      response)
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	    throws ServletException, IOException {
 
 	doGet(request, response);
     }
-
 }

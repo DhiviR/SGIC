@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,8 +22,8 @@
         </nav>
     </header>
     <br>
-    <div class="container col-md-5" >
-        <div class="card" style="height: 500px" >
+    <div class="container col-md-5 " >
+        <div class="card" >
             <div class="card-body">
                 <c:if test="${exam != null}">
                     <form action="update-exam" method="post">
@@ -35,7 +37,7 @@
                         <c:if test="${exam != null}">
                             Edit Exam
                         </c:if>
-                        <c:if test="${student == null}">
+                        <c:if test="${exam == null}">
                             Add new Exam
                         </c:if>
                     </h2>
@@ -44,9 +46,10 @@
                 <c:if test="${exam != null}">
                     <input type="hidden" name="id" value="<c:out value='${exam.id}'/>" class="form-control"/>
                 </c:if>
-
+				<br>
+					
                 <fieldset class="form-group">
-                    <label>Term</label>
+                    <label>Term</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <select name="term" class="btn btn-secondary dropdown-toggle">
                         <option value="select the term" selected>Select the term</option>
                         <option value="1" ${exam.term == 1 ? 'selected' : '' }>First Term</option>
@@ -54,8 +57,9 @@
                         <option value="3" ${exam.term == 3 ? 'selected' : '' }>Third Term</option>
                     </select>
                 </fieldset>
+                <br>
                 <fieldset class="form-group">
-                    <label>Grade</label>
+                    <label>Grade</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <select name="grade" class="btn btn-secondary dropdown-toggle">
                         <option value="select" selected>Select grade</option>
                         <option value="1" ${exam.grade == 1 ? 'selected' : '' }>1</option>
@@ -71,13 +75,17 @@
                         <option value="11" ${exam.grade == 11? 'selected' : '' }>11</option>
                     </select>
                 </fieldset>
-              
+              	<br>
                 <fieldset class="form-group">
-                    <label>Subject</label>
-                    <input type="text" value="<c:out value='${exam.subject}' />" class="form-control" name="subject"
-                        required="required">
+                    <label>Subject</label> &nbsp;&nbsp;&nbsp;
+                    <select name="subject" class="btn btn-secondary dropdown-toggle">
+                        <option value="select" selected>Select subject</option>
+                        <option value="Maths" ${exam.subject == 'Maths' ? 'selected' : '' }>Maths</option>
+                        <option value="Science" ${exam.subject == 'Science' ? 'selected' : '' }>Science</option>
+                        <option value="English" ${exam.english == 'English' ? 'selected' : '' }>English</option>
+                   </select>
                 </fieldset>
-
+				<br>
                 <button type="submit" class="btn btn-success">Save</button>
 			</form>
 			

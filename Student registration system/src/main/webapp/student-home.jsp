@@ -11,10 +11,10 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 </head>
-<body>
+<body class="container">
 	    <header>
         <nav class="navbar navbar-expand-md navbar-dark bg-success">
-            <div class="navbar-brand">
+            <div class="container navbar-brand">
                 School Management System
             </div>
 
@@ -47,6 +47,7 @@
                     </tr>
                 </thead>
                 <tbody >
+               
                     <c:forEach var="student" items="${listStudent}">
                         <tr>
                             <td><c:out value="${student.id}" /></td>
