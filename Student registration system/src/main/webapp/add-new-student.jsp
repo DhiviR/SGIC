@@ -46,7 +46,7 @@
                 </caption>
 
                 <c:if test="${student != null}">
-                    <input type="hidden" name="id" value="<c:out value='${student.id}'/>" class="form-control"/>
+                    <input type="hidden" name="studentId" value="<c:out value='${student.studentId}'/>" class="form-control"/>
                 </c:if>
 				<br>
                 <fieldset class="form-group">

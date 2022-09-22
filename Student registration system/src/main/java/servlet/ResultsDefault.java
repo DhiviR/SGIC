@@ -8,23 +8,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import classes.StudentDAO;
-
 /**
- * Servlet implementation class DeleteStudent
+ * Servlet implementation class ResultsDefault
  */
-@WebServlet("/delete-student")
-public class DeleteStudent extends HttpServlet {
+@WebServlet("/results")
+public class ResultsDefault extends HttpServlet {
     private static final long serialVersionUID = 1L;
-
-    private StudentDAO studentDAO = StudentDAO.getInstance();
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteStudent() {
+    public ResultsDefault() {
 	super();
-	// TODO Auto-generated constructor stub
+
     }
 
     /**
@@ -35,14 +31,7 @@ public class DeleteStudent extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	    throws ServletException, IOException {
 	// TODO Auto-generated method stub
-	int studentId = Integer.parseInt(request.getParameter("id"));
-	try {
-	    studentDAO.deleteStudent(studentId);
-	} catch (Exception e) {
-	    e.printStackTrace();
-	}
 
-	response.sendRedirect("students");
     }
 
     /**

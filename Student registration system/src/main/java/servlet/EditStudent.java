@@ -37,9 +37,9 @@ public class EditStudent extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	    throws ServletException, IOException {
 	// TODO Auto-generated method stub
-	int id = Integer.parseInt(request.getParameter("id"));
+	int studentId = Integer.parseInt(request.getParameter("id"));
 
-	Student existingStudent = studentDAO.selectStudent(id);
+	Student existingStudent = studentDAO.selectStudent(studentId);
 	RequestDispatcher dispatcher = request.getRequestDispatcher("add-new-student.jsp");
 	request.setAttribute("student", existingStudent);
 	dispatcher.forward(request, response);

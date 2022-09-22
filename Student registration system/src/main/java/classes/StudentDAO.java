@@ -20,13 +20,13 @@ public class StudentDAO {
     private static final String INSERT_STUDENT = "INSERT INTO students"
 	    + " (Name, Grade, Age, Gender, Address, Telephone) " + "VALUES (?, ?, ?, ?, ?, ?)";
 
-    private static final String SELECT_STUDENT_BY_ID = "SELECT Name, Grade, Age, Gender, Address, Telephone, ID from students WHERE ID = ?";
+    private static final String SELECT_STUDENT_BY_ID = "SELECT Name, Grade, Age, Gender, Address, Telephone, student_id from students WHERE student_id = ?";
 
     private static final String SELECT_ALL_STUDENTS = "SELECT * FROM students";
 
-    private static final String DELETE_STUDENT = "DELETE from students WHERE id = ?";
+    private static final String DELETE_STUDENT = "DELETE from students WHERE student_id = ?";
 
-    private static final String UPDATE_STUDENT = "UPDATE students SET Name = ?, Grade = ?, Age = ?, Gender = ?, Address = ?, Telephone = ? WHERE (ID = ?)";
+    private static final String UPDATE_STUDENT = "UPDATE students SET Name = ?, Grade = ?, Age = ?, Gender = ?, Address = ?, Telephone = ? WHERE (student_id = ?)";
 
     private StudentDAO() {
     }
@@ -83,14 +83,14 @@ public class StudentDAO {
 	    ResultSet set = preparedStatement.executeQuery();
 
 	    while (set.next()) {
-		int id = set.getInt("id");
+		int studentId = set.getInt("student_id");
 		String name = set.getString("name");
 		int grade = set.getInt("grade");
 		int age = set.getInt("age");
 		String gender = set.getString("gender");
 		String address = set.getString("address");
 		String telephone = set.getString("telephone");
-		students.add(new Student(id, name, grade, age, gender, address, telephone));
+		students.add(new Student(studentId, name, grade, age, gender, address, telephone));
 	    }
 
 	} catch (SQLException e) {
@@ -102,12 +102,12 @@ public class StudentDAO {
     }
 
 //  Select a Student
-    public Student selectStudent(int id) {
+    public Student selectStudent(int studentId) {
 	Student student = null;
 
 	try (Connection connection = getConnection();
 		PreparedStatement preparedStatement = connection.prepareStatement(SELECT_STUDENT_BY_ID);) {
-	    preparedStatement.setInt(1, id);
+	    preparedStatement.setInt(1, studentId);
 	    System.out.println(preparedStatement);
 
 	    ResultSet set = preparedStatement.executeQuery();
@@ -119,8 +119,7 @@ public class StudentDAO {
 		String gender = set.getString("gender");
 		String address = set.getString("address");
 		String telephone = set.getString("telephone");
-		int id1 = set.getInt("id");
-		student = new Student(id1, name, grade, age, gender, address, telephone);
+		student = new Student(studentId, name, grade, age, gender, address, telephone);
 
 	    }
 	} catch (SQLException e) {
@@ -143,7 +142,7 @@ public class StudentDAO {
 	    preparedStatement.setString(4, student.getGender());
 	    preparedStatement.setString(5, student.getAddress());
 	    preparedStatement.setString(6, student.getTelephone());
-	    preparedStatement.setInt(7, student.getId());
+	    preparedStatement.setInt(7, student.getStudentId());
 	    System.out.println(preparedStatement);
 	    isUpdated = preparedStatement.executeUpdate() > 0;
 	}
@@ -152,12 +151,12 @@ public class StudentDAO {
     }
 
 //    Delete student
-    public boolean deleteStudent(int id) throws SQLException {
+    public boolean deleteStudent(int studentId) throws SQLException {
 	boolean isDeleted = false;
 
 	try (Connection connection = getConnection();
 		PreparedStatement preparedStatement = connection.prepareStatement(DELETE_STUDENT);) {
-	    preparedStatement.setInt(1, id);
+	    preparedStatement.setInt(1, studentId);
 	    isDeleted = preparedStatement.executeUpdate() > 0;
 	}
 

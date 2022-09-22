@@ -8,9 +8,15 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 </head>
-<body class="container bg-dark" style="display: flex">
+<body class="container bg-dark align-center">
 
-	<div class="card" style="top:200px; left:500px">
+
+<div style="top:50px">
+<h1 style="color:white; position: absolute; left: 350px; top: 50px;">School student management system</h1>
+</div>
+
+
+	<div class="card" style="width: 200px; top:200px; left:450px">
 		<ul class="list-group list-group-flush">
 		    <li class="list-group-item">
 			    <form action="students" method="post" >
@@ -19,7 +25,7 @@
 		    </li>
 		    <li class="list-group-item">
 				<form action="exams" method="post">
-					<button class="btn btn-warning" type="submit">Examination</button>
+					<button class="btn btn-warning form-control" type="submit">Examination</button>
 				</form>
 			</li>
 			<li class="list-group-item">

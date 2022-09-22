@@ -25,6 +25,8 @@ public class ExamDAO {
 
     private static final String UPDATE_EXAM = "UPDATE exams SET term = ?, grade = ?, subject = ? WHERE exam_id = ?";
 
+    private static final String DELETE_EXAM = "DELETE FROM exams WHERE exam_id = ?";
+
     private ExamDAO() {
 
     }
@@ -128,6 +130,17 @@ public class ExamDAO {
 	}
 
 	return isUpdated;
+    }
 
+    public void deleteExam(int examId) {
+	try (Connection connection = getConnection();
+		PreparedStatement preparedStatement = connection.prepareStatement(DELETE_EXAM)) {
+	    preparedStatement.setInt(1, examId);
+	    System.out.println(preparedStatement);
+	    preparedStatement.executeUpdate();
+	} catch (SQLException e) {
+
+	    e.printStackTrace();
+	}
     }
 }

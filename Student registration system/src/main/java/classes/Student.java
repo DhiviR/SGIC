@@ -2,7 +2,7 @@ package classes;
 
 public class Student {
 
-    private int id;
+    private int studentId;
     private String name;
     private int grade;
     private int age;
@@ -19,8 +19,8 @@ public class Student {
 	this.telephone = telephone;
     }
 
-    public Student(int id, String name, int grade, int age, String gender, String address, String telephone) {
-	this.id = id;
+    public Student(int studentId, String name, int grade, int age, String gender, String address, String telephone) {
+	this.studentId = studentId;
 	this.name = name;
 	this.grade = grade;
 	this.age = age;
@@ -29,12 +29,12 @@ public class Student {
 	this.telephone = telephone;
     }
 
-    public int getId() {
-	return id;
+    public int getStudentId() {
+	return studentId;
     }
 
-    public void setId(int id) {
-	this.id = id;
+    public void setId(int studentId) {
+	this.studentId = studentId;
     }
 
     public String getName() {

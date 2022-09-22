@@ -19,7 +19,7 @@
             </div>
 
             <ul class="navbar-nav">
-                <li><a href="<%=request.getContextPath() %>/students" class="nav-link">Students List</a></li>
+                <li><a href="<%=request.getContextPath() %>" class="nav-link">Home</a></li>
             </ul>
         </nav>
     </header>
@@ -37,7 +37,7 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>Student ID</th>
                         <th>Name</th>
                         <th>Grade</th>
                         <th>Age</th>
@@ -50,7 +50,7 @@
                
                     <c:forEach var="student" items="${listStudent}">
                         <tr>
-                            <td><c:out value="${student.id}" /></td>
+                            <td><c:out value="${student.studentId}" /></td>
                             <td><c:out value="${student.name}" /></td>
                             <td><c:out value="${student.grade}" /></td>
                             <td><c:out value="${student.age}" /></td>
@@ -58,8 +58,8 @@
                             <td><c:out value="${student.address}" /></td>
                             <td><c:out value="${student.telephone}" /></td>
                             <td>
-                                <a href="edit-student?id=<c:out value='${student.id}' />">Edit</a> &nbsp;&nbsp;&nbsp;&nbsp;
-                                <a href="delete-student?id=<c:out value='${student.id}' />">Delete</a>
+                                <a href="edit-student?id=<c:out value='${student.studentId}' />">Edit</a> &nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href="delete-student?id=<c:out value='${student.studentId}' />">Delete</a>
                             </td>
                         </tr>
                     </c:forEach>

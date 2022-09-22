@@ -19,7 +19,7 @@
             </div>
 
             <ul class="navbar-nav">
-                <li><a href="<%=request.getContextPath() %>/exams" class="nav-link">Exams</a></li>
+                <li><a href="<%=request.getContextPath() %>" class="nav-link">Home</a></li>
             </ul>
         </nav>
     </header>

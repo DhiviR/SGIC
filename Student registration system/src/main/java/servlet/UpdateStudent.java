@@ -37,7 +37,7 @@ public class UpdateStudent extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	    throws ServletException, IOException {
 	// TODO Auto-generated method stub
-	int id = Integer.parseInt(request.getParameter("id"));
+	int studentId = Integer.parseInt(request.getParameter("studentId"));
 	String name = request.getParameter("name");
 	int grade = Integer.parseInt(request.getParameter("grade"));
 	String gender = request.getParameter("gender");
@@ -47,7 +47,7 @@ public class UpdateStudent extends HttpServlet {
 
 //		System.out.println(id + " " + name + " " + grade + " " + gender + " " + age + " " + address + " " + telephone);
 
-	Student student = new Student(id, name, grade, age, gender, address, telephone);
+	Student student = new Student(studentId, name, grade, age, gender, address, telephone);
 
 	try {
 	    studentDAO.updateStudent(student);
