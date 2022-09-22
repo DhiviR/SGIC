@@ -12,7 +12,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar bavbar-expand-md navbar-dark" style="background-color: blue;">
+        <nav class="navbar bavbar-expand-md navbar-dark bg-warning">
             <ul class="navbar-nav">
                 <li>
                     <a href="<%=request.getContextPath()%>/exams" class="nav-link">Exams</a>

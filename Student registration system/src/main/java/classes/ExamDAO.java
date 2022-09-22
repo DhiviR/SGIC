@@ -1,7 +1,6 @@
 package classes;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,10 +11,7 @@ public class ExamDAO {
 
     private static ExamDAO instance;
 
-    private String jdbcURL = "jdbc:mysql://localhost:3306/student_registration_system?useSSL=false";
-    private String jdbcDriver = "com.mysql.cj.jdbc.Driver";
-    private String jdbcUsername = "root";
-    private String jdbcPassword = "root";
+    DatabaseConnection databaseConnection = DatabaseConnection.getDatabaseConnection();
 
     private static final String INSERT_EXAM = "INSERT INTO exams" + " (term, grade, subject) " + "VALUES (?, ?, ?)";
 
@@ -39,25 +35,10 @@ public class ExamDAO {
 	return instance;
     }
 
-    protected Connection getConnection() {
-	Connection connection = null;
-
-	try {
-	    Class.forName(jdbcDriver);
-	    connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-	} catch (SQLException e) {
-	    e.printStackTrace();
-	} catch (ClassNotFoundException e) {
-	    e.printStackTrace();
-	}
-
-	return connection;
-    }
-
     public List<Exam> selectAllExams() {
 	List<Exam> examList = new ArrayList<>();
 
-	try (Connection connection = getConnection();
+	try (Connection connection = databaseConnection.getConnection();
 		PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_EXAMS);) {
 
 	    System.out.println(preparedStatement);
@@ -79,7 +60,7 @@ public class ExamDAO {
     }
 
     public void insertExam(Exam exam) {
-	try (Connection connection = getConnection();
+	try (Connection connection = databaseConnection.getConnection();
 		PreparedStatement preparedStatement = connection.prepareStatement(INSERT_EXAM);) {
 
 	    preparedStatement.setInt(1, exam.getTerm());
@@ -94,7 +75,7 @@ public class ExamDAO {
 
     public Exam selectExam(int examId) {
 	Exam exam = null;
-	try (Connection connection = getConnection();
+	try (Connection connection = databaseConnection.getConnection();
 		PreparedStatement preparedStatement = connection.prepareStatement(SELECT_EXAM_BY_ID);) {
 	    preparedStatement.setInt(1, examId);
 	    System.out.println(preparedStatement);
@@ -119,7 +100,7 @@ public class ExamDAO {
     public boolean updateExam(Exam exam) throws SQLException {
 	boolean isUpdated = false;
 
-	try (Connection connection = getConnection();
+	try (Connection connection = databaseConnection.getConnection();
 		PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_EXAM);) {
 	    preparedStatement.setInt(1, exam.getTerm());
 	    preparedStatement.setInt(2, exam.getGrade());
@@ -133,7 +114,7 @@ public class ExamDAO {
     }
 
     public void deleteExam(int examId) {
-	try (Connection connection = getConnection();
+	try (Connection connection = databaseConnection.getConnection();
 		PreparedStatement preparedStatement = connection.prepareStatement(DELETE_EXAM)) {
 	    preparedStatement.setInt(1, examId);
 	    System.out.println(preparedStatement);

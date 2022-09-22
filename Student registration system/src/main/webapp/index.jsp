@@ -29,8 +29,8 @@
 				</form>
 			</li>
 			<li class="list-group-item">
-				<form action="results" method="post">
-					<button class="btn btn-secondary form-control" type="submit">Results</button>
+				<form action="marks" method="post">
+					<button class="btn btn-secondary form-control" type="submit">Marks</button>
 				</form>
 			</li>
 		    
