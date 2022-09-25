@@ -13,7 +13,8 @@ public class ExamDAO {
 
     DatabaseConnection databaseConnection = DatabaseConnection.getDatabaseConnection();
 
-    private static final String INSERT_EXAM = "INSERT INTO exams" + " (term, grade, subject) " + "VALUES (?, ?, ?)";
+    private static final String INSERT_EXAM = "INSERT INTO exams" + " (exam_id, term, grade, subject) "
+	    + "VALUES (?, ?, ?, ?)";
 
     private static final String SELECT_ALL_EXAMS = "SELECT * FROM exams";
 
@@ -45,7 +46,7 @@ public class ExamDAO {
 	    ResultSet set = preparedStatement.executeQuery();
 
 	    while (set.next()) {
-		int examId = set.getInt("exam_id");
+		String examId = set.getString("exam_id");
 		int term = set.getInt("term");
 		int grade = set.getInt("grade");
 		String subject = set.getString("subject");
@@ -62,10 +63,10 @@ public class ExamDAO {
     public void insertExam(Exam exam) {
 	try (Connection connection = databaseConnection.getConnection();
 		PreparedStatement preparedStatement = connection.prepareStatement(INSERT_EXAM);) {
-
-	    preparedStatement.setInt(1, exam.getTerm());
-	    preparedStatement.setInt(2, exam.getGrade());
-	    preparedStatement.setString(3, exam.getSubject());
+	    preparedStatement.setString(1, exam.getExamId());
+	    preparedStatement.setInt(2, exam.getTerm());
+	    preparedStatement.setInt(3, exam.getGrade());
+	    preparedStatement.setString(4, exam.getSubject());
 	    System.out.println(preparedStatement);
 	    preparedStatement.executeUpdate();
 	} catch (SQLException e) {
@@ -73,11 +74,11 @@ public class ExamDAO {
 	}
     }
 
-    public Exam selectExam(int examId) {
+    public Exam selectExam(String examId) {
 	Exam exam = null;
 	try (Connection connection = databaseConnection.getConnection();
 		PreparedStatement preparedStatement = connection.prepareStatement(SELECT_EXAM_BY_ID);) {
-	    preparedStatement.setInt(1, examId);
+	    preparedStatement.setString(1, examId);
 	    System.out.println(preparedStatement);
 
 	    ResultSet set = preparedStatement.executeQuery();
@@ -105,7 +106,7 @@ public class ExamDAO {
 	    preparedStatement.setInt(1, exam.getTerm());
 	    preparedStatement.setInt(2, exam.getGrade());
 	    preparedStatement.setString(3, exam.getSubject());
-	    preparedStatement.setInt(4, exam.getExamId());
+	    preparedStatement.setString(4, exam.getExamId());
 	    System.out.println(preparedStatement);
 	    isUpdated = preparedStatement.executeUpdate() > 0;
 	}
@@ -113,10 +114,10 @@ public class ExamDAO {
 	return isUpdated;
     }
 
-    public void deleteExam(int examId) {
+    public void deleteExam(String examId) {
 	try (Connection connection = databaseConnection.getConnection();
 		PreparedStatement preparedStatement = connection.prepareStatement(DELETE_EXAM)) {
-	    preparedStatement.setInt(1, examId);
+	    preparedStatement.setString(1, examId);
 	    System.out.println(preparedStatement);
 	    preparedStatement.executeUpdate();
 	} catch (SQLException e) {

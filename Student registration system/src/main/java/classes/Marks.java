@@ -3,10 +3,10 @@ package classes;
 public class Marks {
     private String marksId;
     private int studentId;
-    private int examId;
+    private String examId;
     private int marks;
 
-    public Marks(String marksId, int studentId, int examId, int marks) {
+    public Marks(String marksId, int studentId, String examId, int marks) {
 	super();
 	this.marksId = marksId;
 	this.studentId = studentId;
@@ -30,11 +30,11 @@ public class Marks {
 	this.studentId = studentId;
     }
 
-    public int getExamId() {
+    public String getExamId() {
 	return examId;
     }
 
-    public void setExamId(int examId) {
+    public void setExamId(String examId) {
 	this.examId = examId;
     }
 

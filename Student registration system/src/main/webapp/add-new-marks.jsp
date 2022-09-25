@@ -41,23 +41,21 @@
 	                        </c:if>
 	                    </h2>
                 	</caption>
-                	<br>
+                	<br>                	
+                	                	
+                	<input type=hidden name="marksId" value="<c:out value='${marks.marksId}'/>" class="form-control"/>
                 	
-                	<label>Marks ID</label>
-                	<fieldset class="form-group">
-                		<input type=text name="marksId" value="<c:out value='${marks.marksId}'/>" class="form-control"/>
-                	</fieldset>
-                	<br>
-                	
+                	<c:if test="${marks == null}">                	
                 	<fieldset>
                 		<label>Student ID</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 		<select name="studentId" class="btn btn-secondary dropdown-toggle">
 	                		<option value="select" selected>Select student</option>
 	                		<c:forEach var="student" items="${listStudent}">
-	                			<option value="${student.studentId} ${marks.studentId == student.studentId ? 'selected' : '' }"><c:out value='${student.studentId}' /></option>
+	                			<option value="${student.studentId}"><c:out value='${student.studentId}' /></option>
 	                		</c:forEach>
                 		</select>
                 	</fieldset>
+                	
                 	<br>
                 	
                 	<fieldset>
@@ -71,10 +69,10 @@
                 		
                 	</fieldset>
                 	<br>
-                	
+                	</c:if>
                 	<fieldset>
                 		<label>Marks</label>
-                		<input type="number" name="marks" value="<c:out value='${marks.marks }'/>" class="form-control" />
+                		<input type="number" name="marks" value="<c:out value='${marks.marks}'/>" class="form-control" />
                 	</fieldset>
                 	<br>
                 	

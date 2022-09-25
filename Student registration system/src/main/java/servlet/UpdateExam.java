@@ -37,7 +37,7 @@ public class UpdateExam extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	    throws ServletException, IOException {
 	// TODO Auto-generated method stub
-	int examId = Integer.parseInt(request.getParameter("examId"));
+	String examId = request.getParameter("examId");
 	int term = Integer.parseInt(request.getParameter("term"));
 	int grade = Integer.parseInt(request.getParameter("grade"));
 	String subject = request.getParameter("subject");

@@ -9,8 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import classes.ExamDAO;
 import classes.Marks;
 import classes.MarksDAO;
+import classes.StudentDAO;
 
 /**
  * Servlet implementation class EditMarks
@@ -18,6 +20,10 @@ import classes.MarksDAO;
 @WebServlet("/edit-marks")
 public class EditMarks extends HttpServlet {
     private static final long serialVersionUID = 1L;
+
+    MarksDAO marksDAO = MarksDAO.getInstance();
+    ExamDAO examDAO = ExamDAO.getInstance();
+    StudentDAO studentDAO = StudentDAO.getInstance();
 
     /**
      * @see HttpServlet#HttpServlet()
@@ -37,7 +43,7 @@ public class EditMarks extends HttpServlet {
 	// TODO Auto-generated method stub
 	String marksId = request.getParameter("id");
 
-	Marks existingMarks = MarksDAO.getInstance().selectMarks(marksId);
+	Marks existingMarks = marksDAO.selectMarks(marksId);
 	RequestDispatcher dispatcher = request.getRequestDispatcher("add-new-marks.jsp");
 	request.setAttribute("marks", existingMarks);
 	dispatcher.forward(request, response);

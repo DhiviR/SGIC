@@ -36,11 +36,13 @@ public class InsertExam extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	    throws ServletException, IOException {
 	// TODO Auto-generated method stub
+
 	int term = Integer.parseInt(request.getParameter("term"));
 	int grade = Integer.parseInt(request.getParameter("grade"));
 	String subject = request.getParameter("subject");
+	String examId = subject.charAt(0) + Integer.toString(grade) + Integer.toString(term);
 
-	examDAO.insertExam(new Exam(term, grade, subject));
+	examDAO.insertExam(new Exam(examId, term, grade, subject));
 
 	response.sendRedirect("exams");
     }

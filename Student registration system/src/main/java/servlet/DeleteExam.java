@@ -34,7 +34,7 @@ public class DeleteExam extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	    throws ServletException, IOException {
-	int examId = Integer.parseInt(request.getParameter("id"));
+	String examId = request.getParameter("id");
 
 	examDAO.deleteExam(examId);
 

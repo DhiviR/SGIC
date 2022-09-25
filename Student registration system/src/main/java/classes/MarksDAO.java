@@ -19,7 +19,7 @@ public class MarksDAO {
 
     private static final String SELECT_MARKS_BY_ID = "SELECT marks_id, student_id, exam_id, marks FROM marks WHERE marks_id = ?";
 
-    private static final String UPDATE_MARKS = "UPDATE marks SET student_id = ?, exam_id = ?, marks = ? WHERE marks_id = ?";
+    private static final String UPDATE_MARKS = "UPDATE marks SET marks = ? WHERE marks_id = ?";
 
     private static final String DELETE_MARKS = "DELETE FROM marks WHERE marks_id = ?";
 
@@ -47,7 +47,7 @@ public class MarksDAO {
 	    while (set.next()) {
 		String marksId = set.getString("marks_id");
 		int studentId = set.getInt("student_id");
-		int examId = set.getInt("exam_id");
+		String examId = set.getString("exam_id");
 		int marks = set.getInt("marks");
 
 		marksList.add(new Marks(marksId, studentId, examId, marks));
@@ -65,7 +65,7 @@ public class MarksDAO {
 
 	    preparedStatement.setString(1, marks.getMarksId());
 	    preparedStatement.setInt(2, marks.getStudentId());
-	    preparedStatement.setInt(3, marks.getExamId());
+	    preparedStatement.setString(3, marks.getExamId());
 	    preparedStatement.setInt(4, marks.getMarks());
 	    System.out.println(preparedStatement);
 	    preparedStatement.executeUpdate();
@@ -85,7 +85,7 @@ public class MarksDAO {
 	    while (set.next()) {
 
 		int studentId = set.getInt("student_id");
-		int examId = set.getInt("exam_id");
+		String examId = set.getString("exam_id");
 		int marks = set.getInt("marks");
 
 		marksObj = new Marks(marksId, studentId, examId, marks);
@@ -95,6 +95,33 @@ public class MarksDAO {
 	}
 
 	return marksObj;
+    }
+
+    public boolean updateMarks(String marksId, int marks) {
+	boolean isUpdated = false;
+
+	try (Connection connection = databaseConnection.getConnection();
+		PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_MARKS)) {
+	    preparedStatement.setInt(1, marks);
+	    preparedStatement.setString(2, marksId);
+	    System.out.println(preparedStatement);
+	    isUpdated = preparedStatement.executeUpdate() > 0;
+	} catch (SQLException e) {
+	    e.printStackTrace();
+	}
+
+	return isUpdated;
+    }
+
+    public void deleteMarks(String marksId) {
+	try (Connection connection = databaseConnection.getConnection();
+		PreparedStatement preparedStatement = connection.prepareStatement(DELETE_MARKS)) {
+	    preparedStatement.setString(1, marksId);
+	    System.out.println(preparedStatement);
+	    preparedStatement.executeUpdate();
+	} catch (SQLException e) {
+	    e.printStackTrace();
+	}
     }
 
 }

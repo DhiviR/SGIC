@@ -13,10 +13,9 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="D:/Softwares/jars/jsp-api-2.2.jar"/>
-	<classpathentry kind="lib" path="D:/Softwares/jars/jstl-1.2.jar"/>
-	<classpathentry kind="lib" path="D:/Softwares/jars/mysql-connector.jar"/>
-	<classpathentry kind="lib" path="D:/Softwares/jars/mysql-connector-java-8.0.13.jar"/>
-	<classpathentry kind="lib" path="D:/Softwares/jars/servlet-api-2.5.jar"/>
+	<classpathentry kind="lib" path="F:/Softwares/Based on CS/jars/javax.servlet-3.0.0.v201112011016.jar"/>
+	<classpathentry kind="lib" path="F:/Softwares/Based on CS/jars/jsp-api-2.2.jar"/>
+	<classpathentry kind="lib" path="F:/Softwares/Based on CS/jars/jstl-1.2.jar"/>
+	<classpathentry kind="lib" path="F:/Softwares/Based on CS/jars/mysql-connector-java-8.0.13.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

@@ -35,9 +35,9 @@ public class InsertMarks extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	    throws ServletException, IOException {
-	String marksId = request.getParameter("studentId") + " - " + request.getParameter("examId");
+	String marksId = request.getParameter("studentId") + "-" + request.getParameter("examId");
 	int studentId = Integer.parseInt(request.getParameter("studentId"));
-	int examId = Integer.parseInt(request.getParameter("examId"));
+	String examId = request.getParameter("examId");
 	int marks = Integer.parseInt(request.getParameter("marks"));
 
 	marksDAO.insertMarks(new Marks(marksId, studentId, examId, marks));

@@ -2,29 +2,27 @@ package servlet;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import classes.Exam;
-import classes.ExamDAO;
+import classes.MarksDAO;
 
 /**
- * Servlet implementation class EditExam
+ * Servlet implementation class UpdateMarks
  */
-@WebServlet("/edit-exam")
-public class EditExam extends HttpServlet {
+@WebServlet("/update-marks")
+public class UpdateMarks extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    private ExamDAO examDAO = ExamDAO.getInstance();
+    private MarksDAO marksDAO = MarksDAO.getInstance();
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EditExam() {
+    public UpdateMarks() {
 	super();
 	// TODO Auto-generated constructor stub
     }
@@ -36,13 +34,12 @@ public class EditExam extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	    throws ServletException, IOException {
-	// TODO Auto-generated method stub
-	String examId = request.getParameter("id");
+	int marks = Integer.parseInt(request.getParameter("marks"));
+	String marks_id = request.getParameter("marksId");
 
-	Exam existingExam = examDAO.selectExam(examId);
-	RequestDispatcher dispatcher = request.getRequestDispatcher("add-new-exam.jsp");
-	request.setAttribute("exam", existingExam);
-	dispatcher.forward(request, response);
+	marksDAO.updateMarks(marks_id, marks);
+
+	response.sendRedirect("marks");
     }
 
     /**
