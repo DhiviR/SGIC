@@ -1,0 +1,23 @@
+package functions;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+
+import GUI.FileSelectorFrame;
+
+public class Main {
+
+    public static void main(String[] args) {
+	FileSelectorFrame frame = new FileSelectorFrame();
+	File file = frame.getFile();
+	InsertDataUsingCSV insertDataUsingCSV = new InsertDataUsingCSV();
+
+	try {
+	    insertDataUsingCSV.insertData(file);
+	} catch (FileNotFoundException e) {
+	    // TODO Auto-generated catch block
+	    e.printStackTrace();
+	}
+    }
+
+}
