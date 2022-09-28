@@ -19,10 +19,10 @@ public class DatabaseConnection {
 	return databaseConnection;
     }
 
-    private String jdbcURL = "jdbc:mysql://localhost:3306/db_for_insert_using_csv?useSSL=false";
-    private String jdbcDriver = "com.mysql.cj.jdbc.Driver";
-    private String jdbcUsername = "root";
-    private String jdbcPassword = "root";
+    String jdbcURL = "jdbc:mysql://localhost:3306/db_for_insert_using_csv?useSSL=false";
+    String jdbcDriver = "com.mysql.cj.jdbc.Driver";
+    String jdbcUsername = "root";
+    String jdbcPassword = "root";
 
     public Connection getConnection() {
 	Connection connection = null;
