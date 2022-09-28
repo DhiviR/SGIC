@@ -8,8 +8,13 @@ import java.io.File;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class FileSelectorFrame extends JFrame implements ActionListener {
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
     JButton button;
     File file;
 
@@ -30,10 +35,13 @@ public class FileSelectorFrame extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 	if (e.getSource() == button) {
 	    JFileChooser fileChooser = new JFileChooser();
+	    fileChooser.setCurrentDirectory(new File("C:\\Users\\hp\\Desktop"));
+	    FileNameExtensionFilter filter = new FileNameExtensionFilter("csv", "csv");
+	    fileChooser.setFileFilter(filter);
 	    int response = fileChooser.showOpenDialog(null);
 
 	    if (response == JFileChooser.APPROVE_OPTION) {
-		this.file = new File(fileChooser.getSelectedFile().getAbsolutePath());
+		this.file = fileChooser.getSelectedFile();
 		System.out.println(file);
 	    }
 

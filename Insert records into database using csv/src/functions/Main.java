@@ -9,6 +9,14 @@ public class Main {
 
     public static void main(String[] args) {
 	FileSelectorFrame frame = new FileSelectorFrame();
+
+	try {
+	    Thread.sleep(5000);
+	} catch (InterruptedException e1) {
+	    // TODO Auto-generated catch block
+	    e1.printStackTrace();
+	}
+
 	File file = frame.getFile();
 	InsertDataUsingCSV insertDataUsingCSV = new InsertDataUsingCSV();
 

@@ -15,7 +15,7 @@ public class InsertDataUsingCSV {
     private String INSERT_DATA = "INSERT INTO users(username, first_name, last_name, NIC_no, address) VALUES(?, ?, ?, ?, ?)";
 
     public void insertData(File file) throws FileNotFoundException {
-	int batchSize = 20;
+//	int batchSize = 20;
 
 	Connection connection = dbConnection.getConnection();
 	try {
@@ -23,6 +23,7 @@ public class InsertDataUsingCSV {
 
 	    BufferedReader reader = new BufferedReader(new FileReader(file));
 
+	    reader.readLine();
 	    String lineText;
 	    while ((lineText = reader.readLine()) != null) {
 		String[] data = lineText.split(",");
