@@ -40,12 +40,11 @@ public class InsertDataUsingCSV {
 		preparedStatement.setString(4, nicNo);
 		preparedStatement.setString(5, address);
 		System.out.println(preparedStatement);
-		if (preparedStatement.executeUpdate() > 0) {
-		    System.out.println();
-		    System.out.println("Insertion Successful!");
-		}
+		preparedStatement.executeUpdate();
 
 	    }
+	    System.out.println();
+	    System.out.println("Insertion Successful!");
 	    reader.close();
 	    connection.close();
 
