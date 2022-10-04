@@ -1,7 +1,7 @@
 package com.school.student.model;
 
 public class StudentDto {
-//    private long studentId;
+    private long studentId;
     private String firstName;
     private String lastName;
     private int grade;
@@ -9,13 +9,13 @@ public class StudentDto {
     private String address;
     private String telephone;
 
-//    public long getStudentId() {
-//	return studentId;
-//    }
-//
-//    public void setStudentId(long studentId) {
-//	this.studentId = studentId;
-//    }
+    public long getStudentId() {
+	return studentId;
+    }
+
+    public void setStudentId(long studentId) {
+	this.studentId = studentId;
+    }
 
     public String getFirstName() {
 	return firstName;

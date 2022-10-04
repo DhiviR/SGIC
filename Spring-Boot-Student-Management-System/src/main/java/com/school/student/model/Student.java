@@ -24,11 +24,11 @@ public class Student implements Serializable {
     private String address;
     private String telephone;
 
-    public long getStudentID() {
+    public long getStudentId() {
 	return studentId;
     }
 
-    public void setStudentID(long studentID) {
+    public void setStudentId(long studentID) {
 	this.studentId = studentID;
     }
 
