@@ -15,12 +15,14 @@ import com.school.student.service.StudentService;
 
 @RestController
 public class StudentController {
+
     @Autowired
     StudentService studentService;
 
     @GetMapping("/hello")
     public String sayHello() {
 	return "Hello";
+
     }
 
     @PostMapping("/insert")
