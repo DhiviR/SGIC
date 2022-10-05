@@ -1,5 +1,7 @@
 package com.school.student.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,18 +18,21 @@ import com.school.student.service.StudentService;
 @RestController
 public class StudentController {
 
+    Logger logger = LoggerFactory.getLogger(StudentController.class);
+
     @Autowired
     StudentService studentService;
 
     @GetMapping("/hello")
     public String sayHello() {
+	logger.error("Accessed hello end point successfully");
 	return "Hello";
-
     }
 
     @PostMapping("/insert")
     public ResponseEntity<String> insertStudent(@RequestBody StudentDto studentDto) {
 	Student student = new Student();
+	logger.info("Entered into insert method");
 
 	student.setFirstName(studentDto.getFirstName());
 	student.setLastName(studentDto.getLastName());
