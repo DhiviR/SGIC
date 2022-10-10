@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d3aafd7a-9ab8-4d52-b399-da9f6ac42db3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../Student registration system/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/../../Student registration system/.classpath" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Student registration system/src/main/java/classes/StudentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Student registration system/src/main/java/classes/StudentDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Student registration system/src/main/java/servlet/StudentServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Student registration system/src/main/java/servlet/StudentServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Student registration system/src/main/webapp/new-form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Student registration system/src/main/webapp/new-form.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Student registration system/src/main/webapp/student-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Student registration system/src/main/webapp/student-list.jsp" afterDir="false" />
-    </list>
+    <list default="true" id="d3aafd7a-9ab8-4d52-b399-da9f6ac42db3" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,13 +29,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/hp/Desktop/SGIC/web-socket",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Application.InterfaceDemo">
     <configuration name="DemoSingletonSingleThread" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="DemoSingletonSingleThread" />
