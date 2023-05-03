@@ -1,0 +1,11 @@
+Employee
+@ManyToMany(mappedBy = "employees", targetEntity = EmergencyContactDetails.class,
+      fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+  private List<EmergencyContactDetails> emergencyContactDetailsList;
+
+EmergencyContactDetails
+@ManyToMany(targetEntity = Employee.class)
+  @JoinTable(name = "EmergencyContactDetails_Employee",
+      joinColumns = @JoinColumn(name = "employee_id"),
+      inverseJoinColumns = @JoinColumn(name = "id"))
+  private List<Employee> employees;

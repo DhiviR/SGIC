@@ -1,0 +1,11 @@
+Windows
+Backup - pg_dump -U <username> batabase_backup > database_name
+Restore - psql database_name < batabase_backup username
+
+Linux
+Switch user to postgres
+Change directory to root (Type cd and enter)
+Backup -> pg_dump batabase_backup > database_name
+Restore -> psql database_name < batabase_backup
+Connect database -> 1. psql Enter 2. \c database_name
+Copy paste the scripts

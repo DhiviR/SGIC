@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.example.entitymapping.oneToOne.Employee;
+import com.example.entitymapping.oneToOne.model.Employee;
 
 @Entity
 @Table(name = "designation")
